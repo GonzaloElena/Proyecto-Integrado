@@ -1,0 +1,17 @@
+body{
+
+ background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/1.jpg');
+ background-position:expanded;
+background-repeat: no-repeat  
+}
+
+ .transparente
+  {
+  width:400px;
+  height:180px;
+  margin:30px 50px;
+  background-color:#6495ed;
+  border:1px solid black;
+  opacity:0.6;
+  filter:alpha(opacity=60); 
+  }
