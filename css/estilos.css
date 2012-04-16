@@ -5,6 +5,30 @@ body{
 background-repeat: no-repeat  
 }
 
+#header {
+	width: 874px;
+	text-align: center;
+	margin: 0 auto;
+	background: #CCC;
+	font-size: 40px;
+	font-family: "comic sans";
+	font-weight: bold;
+	border-style: solid;
+	height: 90px;
+	border-width: 4px;
+}
+
+#footer {
+	text-align: center;
+	border-style: solid;
+	width: 874px;
+	background: #CCC;
+	margin: 0 auto;
+	border-width: 4px;
+	font-weight: bold;
+}
+
+
  .transparente
   {
   width:400px;
@@ -15,3 +39,19 @@ background-repeat: no-repeat
   opacity:0.6;
   filter:alpha(opacity=60); 
   }
+
+a:hover {
+	color: #045FB4;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+a:link {
+	color: #045FB4;
+	text-decoration:none;
+}
+
+a:visited {
+  color: #045FB4;
+	text-decoration:none;
+}
