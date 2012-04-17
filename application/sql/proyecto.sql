@@ -6,15 +6,17 @@ drop table usuarios cascade;
 create table usuarios (
 id_usuario bigserial constraint pk_usuarios primary key,
 login_usuario varchar(15)  constraint uq_login_usuario unique,
+nombre char(15) not null,
+apellidos char(30) not null,
 clave char(32) not null,
 email char(32) constraint uq_email unique
 );
 
-insert into usuarios (login_usuario, clave, email) values ('Tehgriefer', md5('tehgriefer1'), 'tehgriefer@gmail.com');
-insert into usuarios (login_usuario, clave, email) values ('Barbaro', md5('barbaro1'), 'barbaro@gmail.com');
-insert into usuarios (login_usuario, clave, email) values ('Mago', md5('mago1'), 'mago@gmail.com');
-insert into usuarios (login_usuario, clave, email) values ('Monje', md5('monje1'), 'monje@gmail.com');
-insert into usuarios (login_usuario, clave, email) values ('cazador', md5('cazador1'), 'cazador@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Tehgriefer','Teh', 'Griefer', md5('tehgriefer1'), 'tehgriefer@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Barbaro', 'Bar', 'Baro', md5('barbaro1'), 'barbaro@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Mago','Ma', 'Go', md5('mago1'), 'mago@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Monje','Mon' 'Je', md5('monje1'), 'monje@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('cazador', 'Caza', 'Dor', md5('cazador1'), 'cazador@gmail.com');
 
 
 -- Tabla de los videos que los usuarios podrán subir a la web, tendrá una categoría a elegir de una lista
