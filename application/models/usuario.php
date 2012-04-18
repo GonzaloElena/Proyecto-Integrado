@@ -23,18 +23,19 @@ if($query -> num_rows() == 1)
    }
   }
 
+
 function crear_usuario()
 	{
 		
-		$new_member_insert_data = array(
-			'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'),
-			'email_address' => $this->input->post('email_address'),			
-			'username' => $this->input->post('username'),
-			'password' => md5($this->input->post('password'))						
+		$nuevo_usuario = array(
+			'nombre' => $this->input->post('nombre'),
+			'apellidos' => $this->input->post('apellidos'),
+			'email' => $this->input->post('email'),			
+			'login_usuario' => $this->input->post('login_usuario'),
+			'clave' => md5($this->input->post('clave'))						
 		);
 		
-		$insert = $this->db->insert('membership', $new_member_insert_data);
+		$insert = $this->db->insert('usuarios', $nuevo_usuario);
 		return $insert;
 	}
 }

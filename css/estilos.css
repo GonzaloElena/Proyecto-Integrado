@@ -1,5 +1,7 @@
-body {
-	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/2.jpg');
+
+
+registro_correcto {
+	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/3.jpg');
         background-position:expanded;
 	background-repeat: no-repeat 
 	margin: 0;
@@ -21,7 +23,7 @@ body {
 
 #login_form {
 	width: 300px;
-	background: #f0f0f0 url(../img/login_bg.jpg) repeat-x 0 0;
+	background: #f0f0f0 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
@@ -80,7 +82,6 @@ fieldset {
 	display: block;
 }
 
-/* FOR FUN */
 
 h1 {
 	text-shadow: 0 1px 0 white;

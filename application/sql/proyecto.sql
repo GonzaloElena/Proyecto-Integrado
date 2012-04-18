@@ -15,7 +15,7 @@ email char(32) constraint uq_email unique
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Tehgriefer','Teh', 'Griefer', md5('tehgriefer1'), 'tehgriefer@gmail.com');
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Barbaro', 'Bar', 'Baro', md5('barbaro1'), 'barbaro@gmail.com');
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Mago','Ma', 'Go', md5('mago1'), 'mago@gmail.com');
-insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Monje','Mon' 'Je', md5('monje1'), 'monje@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Monje','Mon', 'Je', md5('monje1'), 'monje@gmail.com');
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('cazador', 'Caza', 'Dor', md5('cazador1'), 'cazador@gmail.com');
 
 

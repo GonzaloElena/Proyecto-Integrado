@@ -26,6 +26,4 @@ echo form_submit('submit', 'Crear usuario');
 <?php echo validation_errors('<p class="error">'); ?>
 </fieldset>
 
-<?php $this->load->view('includes/tut_info'); ?>
-
 <?php $this->load->view('includes/footer'); ?>

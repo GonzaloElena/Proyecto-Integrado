@@ -39,12 +39,27 @@ function nuevo_usuario()
 		
 		else
 		{			
-			$this->load->model('membership_model');
+			$this->load->model('usuario');
 			
-			if($query = $this->membership_model->create_member())
+			if($query = $this->usuario->crear_usuario())
 			{
-				$data['main_content'] = 'signup_successful';
+				$data['main_content'] = 'registro_correcto';
 				$this->load->view('includes/template', $data);
+			         
+
+
+
+
+				$this->load->library('email');
+
+			$this->email->from('diablomovies@gmail.com', 'Administrador');
+			$this->email->to('email');
+		        $this->email->subject('Confirmación de registro');
+			$this->email->message('Se ha dado de alta en Diablo III Movies correctamente');
+
+			$this->email->send();
+
+
 			}
 			else
 			{
