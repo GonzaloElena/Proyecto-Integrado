@@ -52,7 +52,7 @@
 	   }
 	   else
 	   {
-	     $this->form_validation->set_message('comprobar_bd', 'Usuario o contraseña incorrectos MECACHIS');
+	     $this->form_validation->set_message('comprobar_bd', 'Usuario o contraseña incorrectos');
 	     return false;
 	   }
 	 }

@@ -2,6 +2,32 @@
 
 /*
 |--------------------------------------------------------------------------
+| Website details
+|
+| These details are used in emails sent by authentication library.
+|--------------------------------------------------------------------------
+*/
+$config['website_name'] = 'Diablo III Movies';
+$config['webmaster_email'] = 'diabloIIImovies@gmail.com';
+
+
+/*
+| -------------------------------------------------------------------------
+| Email
+| -------------------------------------------------------------------------
+| This file lets you define parameters for sending emails.
+| Please see the user guide for info:
+|
+|	http://codeigniter.com/user_guide/libraries/email.html
+|
+*/
+$config['mailtype'] = 'html';
+$config['charset'] = 'utf-8';
+$config['newline'] = "\r\n";
+
+
+/*
+|--------------------------------------------------------------------------
 | Base Site URL
 |--------------------------------------------------------------------------
 |

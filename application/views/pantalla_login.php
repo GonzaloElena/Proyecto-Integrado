@@ -1,4 +1,4 @@
-<?php $this->load->view('includes/header'); ?>
+<?php $this->load->view('includes/cabecera_login_registro'); ?>
 
 <div id="formulario_login">
 
@@ -19,5 +19,5 @@
 </div>
 
 	
-<?php $this->load->view('includes/footer'); ?>
+<?php $this->load->view('includes/pie'); ?>
 

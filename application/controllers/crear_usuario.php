@@ -29,6 +29,7 @@ function nuevo_usuario()
 			{
 				$data['main_content'] = 'signup_successful';
 				$this->load->view('includes/template', $data);
+				$this->enviar_mail('activate', $data['email'], $data);
 			}
 			else
 			{
@@ -37,6 +38,8 @@ function nuevo_usuario()
 		}
 		
 	}
+
+
 
 }
 

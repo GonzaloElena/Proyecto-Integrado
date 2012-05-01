@@ -15,11 +15,11 @@
 
 	function registrarse()
 	{
-		$data['main_content'] = 'formulario_registro';
+		$data['contenido'] = 'formulario_registro';
 		$this->load->view('includes/template', $data);
 	}
 
-function nuevo_usuario()
+	function nuevo_usuario()
 	{
 		$this->load->library('form_validation');
 		
@@ -45,19 +45,8 @@ function nuevo_usuario()
 			{
 				$data['main_content'] = 'registro_correcto';
 				$this->load->view('includes/template', $data);
-			         
+			        
 
-
-
-
-				$this->load->library('email');
-
-			$this->email->from('diablomovies@gmail.com', 'Administrador');
-			$this->email->to('email');
-		        $this->email->subject('Confirmación de registro');
-			$this->email->message('Se ha dado de alta en Diablo III Movies correctamente');
-
-			$this->email->send();
 
 
 			}
@@ -68,7 +57,6 @@ function nuevo_usuario()
 		}
 		
 	}
-
 
 
 	 

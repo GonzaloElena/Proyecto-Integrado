@@ -1,5 +1,5 @@
-<?php $this->load->view('includes/header'); ?>
+<?php $this->load->view('includes/cabecera_login_registro'); ?>
 
-<?php $this->load->view($main_content); ?>
+<?php $this->load->view($contenido); ?>
 
-<?php $this->load->view('includes/footer'); ?>
+<?php $this->load->view('includes/pie'); ?>

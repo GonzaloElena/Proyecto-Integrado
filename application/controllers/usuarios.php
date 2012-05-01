@@ -26,7 +26,7 @@ function login() {
         $this->session->set_userdata('usuario', $login_usuario);
 	redirect('principal/index');
       } else {
-        $mensaje = 'Error: usuario o contraseña incorrectos CAGO EN DIOS';
+        $mensaje = 'Error: usuario o contraseña incorrectos';
 	
       }
 	
