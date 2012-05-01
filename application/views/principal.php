@@ -1,15 +1,22 @@
 <?php $this->load->view('includes/cabecera_principal'); ?>
-<html>
-<head>
-</head>
-<body>
-<div align=left>
-<h3>Usuario: <?php echo $login_usuario; ?> </h3><a href="principal/logout">desconectar</a></h3>
+
+<div id="cabecera_top">
+<?php 
+	echo form_open('comprobar_login');
+	echo anchor('login/editar', $login_usuario);
+	echo anchor('principal/logout', 'Desconectarse');
+	echo form_close();
+	?>
+
 </div>
 <div>
-<table width="800" border="1" align="center" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
-<th> Prueba de página web molona </th>	
+<table width=40% border="1" align="left" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
+<th>Últimos videos</th>	
 </table>
 </div>
-</body>
-</html>
+<div>
+<table width=40% border="1" align="center" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
+<th>Videos más votados</th>	
+</table>
+</div>
+<?php $this->load->view('includes/pie'); ?>

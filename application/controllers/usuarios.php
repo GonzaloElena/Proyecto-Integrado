@@ -36,7 +36,7 @@ function login() {
 	$this->load->view('usuarios/login',array( $mensaje));
 
   }
-  
+	
   function logout() {
     $this->session->sess_destroy();
     redirect('usuarios/login');

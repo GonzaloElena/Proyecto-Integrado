@@ -11,7 +11,7 @@ body {
 
 .transparente
   {
-  width:400px;
+  width:45%;
   height:180px;
   margin:30px 50px;
   background-color:#6495ed;
@@ -19,6 +19,15 @@ body {
   opacity:0.6;
   filter:alpha(opacity=60); 
   }
+
+#cabecera_top {
+	width: 100%;
+	top:0;
+	height:30px;
+	background: #000000 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+
+}
+
 
 #formulario_login {
 	width: 300px;
@@ -69,16 +78,16 @@ input[type=submit], form a {
 	text-decoration: none;
 	font-size: 12px;
 	-moz-border-radius: 4px;
-	background: #348075;
-	color: white;
-	box-shadow: 0 1px 0 white;
-	-moz-box-shadow: 0 1px 0 white;
-	-webkit-box-shadow: 0 1px 0 white;
+	background: #b22222;
+	color: black;
+	box-shadow: 0 1px 0 black;
+	-moz-box-shadow: 0 1px 0 black;
+	-webkit-box-shadow: 0 1px 0 black;
 
 }
 
 input[type=submit]:hover, form a:hover {
-	background: #287368;
+	background: #b22222;
 	cursor: pointer;
 }
 

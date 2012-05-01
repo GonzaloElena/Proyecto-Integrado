@@ -19,6 +19,12 @@
 		$this->load->view('includes/template', $data);
 	}
 
+	function editar()
+	{
+		$data['contenido'] = 'formulario_editar';
+		$this->load->view('includes/template', $data);
+	}
+
 	function nuevo_usuario()
 	{
 		$this->load->library('form_validation');
@@ -55,6 +61,8 @@
 				$this->load->view('formulario_registro');			
 			}
 		}
+
+	
 		
 	}
 
