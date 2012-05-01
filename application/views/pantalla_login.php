@@ -1,6 +1,6 @@
 <?php $this->load->view('includes/header'); ?>
 
-<div id="login_form">
+<div id="formulario_login">
 
 	<h1>Diablo III Movies</h1>
     <?php echo validation_errors(); ?>

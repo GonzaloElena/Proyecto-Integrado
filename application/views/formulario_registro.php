@@ -1,5 +1,7 @@
 <?php $this->load->view('includes/header'); ?>
 
+<div id="formulario_registro">
+
 <h1>Alta de usuario</h1>
 <fieldset>
 <legend>Información Personal</legend>
@@ -25,5 +27,6 @@ echo form_submit('submit', 'Crear usuario');
 
 <?php echo validation_errors('<p class="error">'); ?>
 </fieldset>
+</div>
 
 <?php $this->load->view('includes/footer'); ?>

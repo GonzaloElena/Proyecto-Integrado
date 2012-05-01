@@ -1,7 +1,9 @@
+
 body {
-	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/2.jpg');
+	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/3.jpg');
         background-position:expanded;
-	background-repeat: no-repeat 
+	background-repeat: no-repeat;
+	background-attachment:fixed; 
 	margin: 0;
 	padding: 0;
 	font-family: arial;
@@ -19,9 +21,18 @@ body {
   filter:alpha(opacity=60); 
   }
 
-#login_form {
+#formulario_login {
 	width: 300px;
-	background: #f0f0f0 url(../img/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	border: 1px solid white;
+	margin: 250px auto 0;
+	padding: 1em;
+	-moz-border-radius: 3px;
+}
+
+#formulario_registro {
+	width: 400px;
+	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
