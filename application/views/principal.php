@@ -7,8 +7,11 @@
 	echo anchor('principal/logout', 'Desconectarse');
 	echo form_close();
 	?>
-
 </div>
+<div align=center>
+<?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); ?>
+</div>
+
 <div>
 <table width=40% border="1" align="left" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
 <th>Últimos videos</th>	

@@ -21,12 +21,13 @@ body {
   }
 
 #cabecera_top {
-	width: 100%;
+	width: 30%;
 	top:0;
 	height:30px;
 	background: #000000 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
 
 }
+
 
 
 #formulario_login {
