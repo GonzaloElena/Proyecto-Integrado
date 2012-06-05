@@ -1,4 +1,5 @@
-<?php $this->load->view('includes/cabecera_modificar_usuario'); ?>
+<?php $this->load->view('includes/cabecera_modificar_usuario');
+?>
 
 <div id="formulario_registro">
 
@@ -7,20 +8,26 @@
 <legend>Información Personal</legend>
 <?php
    
-echo form_open('login/nuevo_usuario');
+echo form_open('login/editar_usuario');
 
-echo form_input('nombre', set_value('nombre'));
-echo form_input('apellidos', set_value('apellidos'));
-echo form_input('email', set_value('email'));
+echo form_input('nombre', set_value('nombre', $nombre));
+echo form_input('apellidos', set_value('apellidos', $apellidos));
+echo form_input('email', set_value('email', $email));
 ?>
 </fieldset>
 
 <fieldset>
 <legend>Datos de Usuario</legend>
 <?php
-echo form_input('login_usuario', set_value('login_usuario', 'Usuario'));
-echo form_input('clave', set_value('clave', 'Contraseña'));
-echo form_input('clave2', 'Confirmar contraseña');
+$data = array(
+'name' => 'login_usuario',
+'id' => 'login_usuario',
+'value' => $login_usuario,
+'readonly'    => 'readonly'
+ );
+echo form_input($data);
+echo form_password('clave', 'clave');
+echo form_password('clave2', 'clave');
 
 echo form_submit('submit', 'Modificar usuario');
 ?>

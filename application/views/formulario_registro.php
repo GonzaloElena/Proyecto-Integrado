@@ -19,8 +19,8 @@ echo form_input('email', set_value('email', 'Correo electrónico'));
 <legend>Datos de Usuario</legend>
 <?php
 echo form_input('login_usuario', set_value('login_usuario', 'Usuario'));
-echo form_input('clave', set_value('clave', 'Contraseña'));
-echo form_input('clave2', 'Confirmar contraseña');
+echo form_password('clave', 'clave');
+echo form_password('clave2', 'clave');
 
 echo form_submit('submit', 'Crear usuario');
 ?>

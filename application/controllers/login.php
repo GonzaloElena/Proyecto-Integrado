@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No   script access allowed');
 	 
 	class Login extends CI_Controller {
 	 
@@ -20,8 +20,14 @@
 	}
 
 	function editar()
-	{
-		$data['contenido'] = 'formulario_editar';
+	{	
+	
+		$session_data = $this->session->userdata('conectado');
+	        $data['login_usuario'] = $session_data['login_usuario'];
+	        $data['nombre'] = $session_data['nombre'];
+	        $data['apellidos'] = $session_data['apellidos'];
+	        $data['email'] = $session_data['email'];
+		$data['contenido'] = 'formulario_editar';  
 		$this->load->view('includes/template', $data);
 	}
 
@@ -49,7 +55,7 @@
 			
 			if($query = $this->usuario->crear_usuario())
 			{
-				$data['main_content'] = 'registro_correcto';
+				$data['contenido'] = 'registro_correcto';
 				$this->load->view('includes/template', $data);
 			        
 
@@ -59,6 +65,54 @@
 			else
 			{
 				$this->load->view('formulario_registro');			
+			}
+		}
+
+	
+		
+	}
+
+	function editar_usuario()
+	{
+		$this->load->library('form_validation');
+		
+		
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required');
+		$this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required');
+		$this->form_validation->set_rules('email', 'Correo electrónico', 'trim|required|valid_email');
+		$this->form_validation->set_rules('login_usuario', 'Usuario', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('clave', 'Contraseña', 'trim|required|min_length[4]|max_length[32]');
+		$this->form_validation->set_rules('clave2', 'Confirmar contraseña', 'trim|required|matches[clave]');
+		$session_data = $this->session->userdata('conectado');
+		$data['login_usuario'] = $session_data['login_usuario'];
+		$data['nombre'] = $session_data['nombre'];
+		$data['apellidos'] = $session_data['apellidos'];
+		$data['email'] = $session_data['email'];
+		
+		if($this->form_validation->run() == FALSE)
+		{
+			
+			$this->load->view('formulario_editar', $data);
+		}
+		
+		else
+		{			
+			$this->load->model('usuario');
+			$session_data = $this->session->userdata('conectado');
+			$login_usuario = $session_data['login_usuario'];
+			if($query = $this->usuario->modificar_usuario($login_usuario))
+			{
+				$data['contenido'] = 'modificacion_correcta';
+				$this->load->view('includes/template', $data);
+			        
+
+
+
+			}
+			else
+			{
+				
+				$this->load->view('formulario_editar', $data);			
 			}
 		}
 

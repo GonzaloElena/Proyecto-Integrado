@@ -44,7 +44,10 @@
 	     {
 	       $sess_array = array(
 	         'id_usuario' => $row->id_usuario,
-	         'login_usuario' => $row->login_usuario
+	         'login_usuario' => $row->login_usuario,
+		 'nombre' => $row->nombre,
+		 'apellidos' => $row->apellidos,
+	    	 'email' => $row->email
 	       );
 	       $this->session->set_userdata('conectado', $sess_array);
 	     }

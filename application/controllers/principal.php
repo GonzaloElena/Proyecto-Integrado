@@ -13,6 +13,9 @@
 	   {
 	     $session_data = $this->session->userdata('conectado');
 	     $data['login_usuario'] = $session_data['login_usuario'];
+	     $data['nombre'] = $session_data['nombre'];
+	     $data['apellidos'] = $session_data['apellidos'];
+	     $data['email'] = $session_data['email'];
 	     $this->load->view('principal', $data);
 	   }
 	   else

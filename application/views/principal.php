@@ -1,9 +1,11 @@
-<?php $this->load->view('includes/cabecera_principal'); ?>
+<?php $this->load->view('includes/cabecera_principal');
+?>
 
 <div id="cabecera_top">
 <?php 
-	echo form_open('comprobar_login');
-	echo anchor('login/editar', $login_usuario);
+	
+	echo form_open('login/editar_usuario');
+	echo anchor ('login/editar', $login_usuario);
 	echo anchor('principal/logout', 'Desconectarse');
 	echo form_close();
 	?>

@@ -56,6 +56,16 @@ body {
 	padding: 1em;
 	-moz-border-radius: 3px;
 }
+
+#modificacion_correcta {
+	width: 400px;
+	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	border: 1px solid white;
+	margin: 250px auto 0;
+	padding: 1em;
+	-moz-border-radius: 3px;
+}
+
 h1,h2,h3,h4,h5 {
 	margin-top: 0;
 	font-family: arial black, arial;
