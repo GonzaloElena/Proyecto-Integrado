@@ -5,15 +5,15 @@
 <?php 
 	
 	echo form_open('login/editar_usuario');
-	echo anchor ("usuarios/editar/$login_usuario", $login_usuario);
-	echo anchor('login/logout', 'Desconectarse');
+	echo anchor ('login/editar', $login_usuario);
+	echo anchor('principal/logout', 'Desconectarse');
 	echo anchor ('subida_video/nuevo_video','Subir película');
 	echo form_close();
 ?>
 </div>
 <div id="texto_busqueda" align=right>
 <?php 
-	 echo form_open('busqueda');
+	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
        echo form_submit ('Submit', 'Buscar'); 
     	echo form_close(); 
@@ -25,14 +25,10 @@
 <?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); ?>
 </div>
 
-<div>
-<table width=40% border="1" align="left" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
-<th>Últimos videos</th>	
+<div align=center>
+<table width=100% border="1" align="center" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
+<th>No se han encontrado ningun resultados para esa busqueda</th>	
 </table>
 </div>
-<div>
-<table width=40% border="1" align="center" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
-<th>Videos más votados</th>	
-</table>
-</div>
+
 <?php $this->load->view('includes/pie'); ?>

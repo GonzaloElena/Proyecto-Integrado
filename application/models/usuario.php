@@ -2,6 +2,11 @@
 
 Class Usuario extends CI_Model
 {
+
+# Función de login para extraer los datos del usuario en función al login y clave
+# Si no obtiene ningún resultado para la select devolverá false
+
+
 function login($login_usuario, $clave)
 {
 	  
@@ -24,6 +29,8 @@ if($query -> num_rows() == 1)
   }
 
 
+# Función para crear un nuevo usuario
+
 function crear_usuario()
 	{
 		
@@ -39,6 +46,8 @@ function crear_usuario()
 		return $insert;
 	}
 
+
+# Función para modificar un usuario
 
 function modificar_usuario($login_usuario)
 	{
@@ -57,10 +66,29 @@ function modificar_usuario($login_usuario)
 
 
 
+# Función para refrescar los datos del usuario que está logueado
 
-function obtener_datos($login_usuario) {
-     return $this->db->query("select nombre from usuarios where login_usuario = ?", array($login_usuario))->row_array();
+
+function refrescar_datos($login_usuario)
+{
+	  
+$this -> db -> select('id_usuario, login_usuario, clave, nombre, apellidos, email');
+$this -> db -> from('usuarios');
+$this -> db -> where('login_usuario = ' . "'" . $login_usuario . "'");
+$this -> db -> limit(1);
+	 
+$query = $this -> db -> get();
+	 
+if($query -> num_rows() == 1)
+{
+  return $query->result();
+ }
+  else
+{
+ return false;
+   }
   }
+
 
 }
 ?>

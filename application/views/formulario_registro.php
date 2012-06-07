@@ -7,7 +7,7 @@
 <legend>Información Personal</legend>
 <?php
    
-echo form_open('login/nuevo_usuario');
+echo form_open('usuarios/nuevo_usuario');
 
 echo form_input('nombre', set_value('nombre', 'Nombre'));
 echo form_input('apellidos', set_value('apellidos', 'Apellidos'));

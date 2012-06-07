@@ -1,17 +1,80 @@
 <?php if ( ! defined('BASEPATH')) exit('No   script access allowed');
 	 
 	class Login extends CI_Controller {
+
+# Construimos y cargamos el modelo de usuario
 	 
 	 function __construct()
 	 {
 	   parent::__construct();
+	   $this->load->model('usuario','',TRUE);
 	 }
-	 
+	
+# Cargamos el Helper con form y url y la vista de la pantalla de Login
+ 
 	 function index()
 	 {
 	   $this->load->helper(array('form', 'url'));
 	   $this->load->view('pantalla_login');
 	 }
+
+# Función para comprobar el login
+
+ function comprobar_login()
+	 {
+	  
+	   $this->load->library('form_validation');
+	 
+	   $this->form_validation->set_rules('login_usuario', 'login_usuario', 'trim|required|xss_clean');
+	   $this->form_validation->set_rules('clave', 'clave', 'trim|required|xss_clean|callback_comprobar_bd');
+	 
+	   if($this->form_validation->run() == FALSE)
+	   {
+	     
+	     $this->load->view('pantalla_login');
+	   }
+	   else
+	   {
+	    
+	     redirect('index', 'refresh');
+	   }
+	 
+	 }
+
+# Función que comprobará en la base de datos
+
+	 function comprobar_bd($clave)
+	 {
+	   
+	   $login_usuario = $this->input->post('login_usuario');
+	 
+	   
+	   $result = $this->usuario->login($login_usuario, $clave);
+	 
+	   if($result)
+	   {
+	     $sess_array = array();
+	     foreach($result as $row)
+	     {
+	       $sess_array = array(
+	         'id_usuario' => $row->id_usuario,
+	         'login_usuario' => $row->login_usuario,
+		 'nombre' => $row->nombre,
+		 'apellidos' => $row->apellidos,
+	    	 'email' => $row->email
+	       );
+	       $this->session->set_userdata('conectado', $sess_array);
+	     }
+	     return TRUE;
+	   }
+	   else
+	   {
+	     $this->form_validation->set_message('comprobar_bd', 'Usuario o contraseña incorrectos');
+	     return false;
+	   }
+	 }
+
+# Función para cargar la vista de formulario de registro
 
 	function registrarse()
 	{
@@ -19,108 +82,14 @@
 		$this->load->view('includes/template', $data);
 	}
 
-	function editar()
-	{	
-	
-		$session_data = $this->session->userdata('conectado');
-	        $data['login_usuario'] = $session_data['login_usuario'];
-	        $data['nombre'] = $session_data['nombre'];
-	        $data['apellidos'] = $session_data['apellidos'];
-	        $data['email'] = $session_data['email'];
-		$data['contenido'] = 'formulario_editar';  
-		$this->load->view('includes/template', $data);
-	}
+# Función para desconectar al usuario
 
-	function nuevo_usuario()
-	{
-		$this->load->library('form_validation');
-		
-		
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required');
-		$this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required');
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'trim|required|valid_email');
-		$this->form_validation->set_rules('login_usuario', 'Usuario', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('clave', 'Contraseña', 'trim|required|min_length[4]|max_length[32]');
-		$this->form_validation->set_rules('clave2', 'Confirmar contraseña', 'trim|required|matches[clave]');
-		
-		
-		if($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('formulario_registro');
-		}
-		
-		else
-		{			
-			$this->load->model('usuario');
-			
-			if($query = $this->usuario->crear_usuario())
-			{
-				$data['contenido'] = 'registro_correcto';
-				$this->load->view('includes/template', $data);
-			        
-
-
-
-			}
-			else
-			{
-				$this->load->view('formulario_registro');			
-			}
-		}
-
-	
-		
-	}
-
-	function editar_usuario()
-	{
-		$this->load->library('form_validation');
-		
-		
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required');
-		$this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required');
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'trim|required|valid_email');
-		$this->form_validation->set_rules('login_usuario', 'Usuario', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('clave', 'Contraseña', 'trim|required|min_length[4]|max_length[32]');
-		$this->form_validation->set_rules('clave2', 'Confirmar contraseña', 'trim|required|matches[clave]');
-		$session_data = $this->session->userdata('conectado');
-		$data['login_usuario'] = $session_data['login_usuario'];
-		$data['nombre'] = $session_data['nombre'];
-		$data['apellidos'] = $session_data['apellidos'];
-		$data['email'] = $session_data['email'];
-		
-		if($this->form_validation->run() == FALSE)
-		{
-			
-			$this->load->view('formulario_editar', $data);
-		}
-		
-		else
-		{			
-			$this->load->model('usuario');
-			$session_data = $this->session->userdata('conectado');
-			$login_usuario = $session_data['login_usuario'];
-			if($query = $this->usuario->modificar_usuario($login_usuario))
-			{
-				$data['contenido'] = 'modificacion_correcta';
-				$this->load->view('includes/template', $data);
-			        
-
-
-
-			}
-			else
-			{
-				
-				$this->load->view('formulario_editar', $data);			
-			}
-		}
-
-	
-		
-	}
-
-
-	 
+ function logout()
+	 {
+	   $this->session->unset_userdata('conectado');
+	   session_destroy();
+	   redirect('principal', 'refresh');
+	 }
+		 
 	}	 
 	?>

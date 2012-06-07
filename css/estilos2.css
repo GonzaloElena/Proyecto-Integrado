@@ -21,12 +21,19 @@ body {
   }
 
 #cabecera_top {
-	width: 30%;
+	width: 100%;
 	top:0;
-	height:30px;
-	background: #000000 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	height:0px;
+	
 
 }
+
+#texto_busqueda {
+	width: 100%;
+	top:0;
+	height:0px;
+}
+
 
 
 
@@ -79,7 +86,7 @@ input[type=text], input[type=password] {
 	border: 5px;
 	-moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
-	padding: 1em;
+	
 }
 
 input[type=submit], form a {

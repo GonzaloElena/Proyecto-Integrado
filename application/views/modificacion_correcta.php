@@ -4,7 +4,8 @@
 <h3>Felicidades, tu usuario ha sido modificado correctamente</h3>
 <p>
 <?php 
-	echo form_open('comprobar_login');
+
+	echo form_open('principal');
 	echo anchor('principal/index', 'Volver a página principal');
 	echo form_close();
 ?>

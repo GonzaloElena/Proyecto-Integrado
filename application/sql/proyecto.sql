@@ -17,6 +17,7 @@ insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('B
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Mago','Ma', 'Go', md5('mago1'), 'mago@gmail.com');
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('Monje','Mon', 'Je', md5('monje1'), 'monje@gmail.com');
 insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('cazador', 'Caza', 'Dor', md5('cazador1'), 'cazador@gmail.com');
+insert into usuarios (login_usuario, nombre, apellidos, clave, email) values ('brujo', 'Bru', 'jo', md5('brujo1'), 'brujo@gmail.com');
 
 
 -- Tabla de los videos que los usuarios podrán subir a la web, tendrá una categoría a elegir de una lista
@@ -27,31 +28,38 @@ drop table videos cascade;
 
 create table videos (
 id_video bigserial constraint pk_videos primary key,
-nombre char(30) not null,
+nombre char(50) not null,
 usuario bigint not null constraint fk_videos_usuarios references usuarios(id_usuario),
 categoria char(15) not null constraint ck_categoria_valida check (categoria in('Barbarian','WitchDoctor','Wizard','DemonHunter','Monk')),
-puntuacion numeric (3,2),
-enlace char(30),
 descripcion text,
 fecha_subida timestamp default current_timestamp
 );
 
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('TehgrieferPvp', 1, 'Barbarian', 'http://www.youtube.es/teh','Video fenomenal de Pvp a saco');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('TehgrieferPvp2', 1, 'Barbarian', 'http://www.youtube.es/teh2','Nuestro amigo Teh ajusticia a unos paletos');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('TehgrieferPvp3', 1, 'Barbarian', 'http://www.youtube.es/te3','Teh la lía a saco');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('Bárbaro', 2, 'Barbarian', 'http://www.youtube.es/barbaro','Video de un bárbaro dando hostias como panes');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('Mago', 3, 'Wizard', 'http://www.youtube.es/wizard','Video de un mago que es tralla pura');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('Mago', 4, 'DemonHunter', 'http://www.youtube.es/hunter','Video de un cazador de demonios skilled');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('Mago', 5, 'Monk', 'http://www.youtube.es/monk','Video de un monje más duro que Bruce Willis');
-insert into videos (nombre, usuario, categoria,  enlace, descripcion) 
-values ('WitchDoctor', 1, 'WitchDoctor', 'http://www.youtube.es/witch','Puro vudú');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('DemonHunter Solo Butcher', 5, 'DemonHunter','DH soleando Butcher en Hell');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Barbarian Solo Azmodan', 1, 'Barbarian','Bárbaro solea Azmodan');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Monk Solo Butcher', 4, 'Monk','Monje solea Carnicero');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('DemonHunter trailer', 5, 'DemonHunter','Trailer de DH');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Wizard trailer', 3, 'Wizard','Trailer de Wizard');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Barbarian trailer', 2, 'Barbarian','Trailer de Barbaro');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Monk trailer', 4, 'Monk','Trailer de Monje');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Wizard Solo Butcher', 3, 'Wizard','Trailer de DH');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('DemonHunter Solo Belial', 5, 'DemonHunter','Demon Hunter vs Belial');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('DemonHunter Solo Azmodan', 5, 'DemonHunter','Demon Hunter vs Azmodan');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('DemonHunter Solo Rakanoth', 5, 'DemonHunter','Demon Hunter vs Rakanoth');
+insert into videos (nombre, usuario, categoria, descripcion) 
+values ('Witch Doctor 9 secs Butcher', 6, 'WitchDoctor','Insane DPS');
+
 
 
 -- Tabla de comentarios que los usuarios podrán hacer sobre el video, se podrá votar del 1 al 5 y escribir un comentario
@@ -62,7 +70,7 @@ create table comentarios (
 id_comentario bigserial constraint pk_comentarios primary key,
 video bigint not null constraint fk_comentarios_videos references videos(id_video),
 usuario bigint not null constraint fk_videos_usuarios references usuarios(id_usuario),
-puntuacion numeric(1) not null constraint ck_puntuacion_valida check (puntuacion between 1 and 5),
+puntuacion numeric(1) constraint ck_puntuacion_valida check (puntuacion between 1 and 5),
 comentario text,
 fecha timestamp default current_timestamp
 );
