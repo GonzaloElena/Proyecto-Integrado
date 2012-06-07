@@ -6,28 +6,23 @@ class Subida_video extends CI_Controller {
 	 function __construct()
 	 {
 	   parent::__construct();
-	 
+	  
        	   
 
 	 }
-}
 
-public function index()
+
+public function nuevo_video()
 {
-		
- $this->load->view('subida_video/nuevo_video');
 
+	
+	 $session_data = $this->session->userdata('conectado');
+	 $data['usuario'] = $session_data['id_usuario'];
+	 $data['contenido'] = 'formulario_video';  
+         $this->load->view('includes/template', $data);		
+ 
 }
 
-
-function nuevo_video()
-	{
-
-		$session_data = $this->session->userdata('conectado');
-	        $data['usuario'] = $session_data['id_usuario'];
-		$data['contenido'] = 'formulario_editar';  
-		$this->load->view('includes/template', $data);
-	}
 
 
 function crear_video()
@@ -42,7 +37,7 @@ function crear_video()
 		
 		if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('subida_video');
+			$this->load->view('formulario_video');
 		}
 		
 		else
@@ -60,12 +55,14 @@ function crear_video()
 			}
 			else
 			{
-				$this->load->view('subida_video');			
+				$this->load->view('formulario_video');			
 			}
 		}
 
 
 
+
+ 	}
 
 }
 

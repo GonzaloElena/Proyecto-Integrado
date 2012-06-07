@@ -2,26 +2,35 @@
 ?>
 
 <div id="cabecera_top">
+
 <?php 
 	
-	echo form_open('login/editar_usuario');
+# Abrimos el form y vamos a habilitar 3 botones, uno para editar usuario al que le pasamos el login
+# Otro para desconectar el ususario y un último para la subida de un video.
+
+	echo form_open();
 	echo anchor ("usuarios/editar/$login_usuario", $login_usuario);
 	echo anchor('login/logout', 'Desconectarse');
-	echo anchor ('subida_video/nuevo_video','Subir película');
+	echo anchor ('subida_video/nuevo_video', 'Subir película');
 	echo form_close();
 ?>
 </div>
+
 <div id="texto_busqueda" align=right>
 <?php 
-	 echo form_open('busqueda');
+
+# Creamos un textbox para que el usuario pueda introducir una cadena y buscarla en la base de datos
+
+	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
-       echo form_submit ('Submit', 'Buscar'); 
+        echo form_submit ('Submit', 'Buscar'); 
     	echo form_close(); 
 ?>
 
 
 </div>
 <div align=center>
+
 <?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); ?>
 </div>
 

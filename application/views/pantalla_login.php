@@ -1,4 +1,4 @@
-<?php $this->load->view('includes/cabecera_login_registro'); ?>
+<?php $this->load->view('includes/cabecera_login'); ?>
 
 <div id="formulario_login">
 

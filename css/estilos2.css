@@ -55,6 +55,15 @@ body {
 	-moz-border-radius: 3px;
 }
 
+#formulario_video {
+	width: 300px;
+	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	border: 1px solid white;
+	margin: 250px auto 0;
+	padding: 1em;
+	-moz-border-radius: 3px;
+}
+
 #registro_correcto {
 	width: 400px;
 	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;

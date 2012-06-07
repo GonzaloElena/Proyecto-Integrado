@@ -88,7 +88,7 @@
 	 {
 	   $this->session->unset_userdata('conectado');
 	   session_destroy();
-	   redirect('principal', 'refresh');
+	   redirect('index', 'refresh');
 	 }
 		 
 	}	 
