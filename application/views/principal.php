@@ -16,7 +16,7 @@
 ?>
 </div>
 
-<div id="texto_busqueda" align=right>
+<div id="texto_busqueda" align="right">
 <?php 
 
 # Creamos un textbox para que el usuario pueda introducir una cadena y buscarla en la base de datos
@@ -29,7 +29,7 @@
 
 
 </div>
-<div align=center>
+<div class="cabecera_logo" align="center">
 
 <?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png'));
 
@@ -41,9 +41,14 @@
  ?>
 </div>
 
+<div style="float:left;">
+<?php echo anchor('/principal/index',img('/imagenes/lateral.png')); ?>
 
-<div>
-<table width=40% border="0" align="center" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+</div>
+
+
+<div style="float:left;">
+<table width=40% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -205,6 +210,32 @@
 <td><?php echo anchor('/principal/index',img('/imagenes/Retrato_WitchDoctor.png')); ?></td>
 </tr>
 </table>
+</div>
+<div style="float:left;">
+
+<?php 
+
+# Vamos a crear una tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
+
+$this->load->library('table');
+
+$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
+
+$this->table->set_template($tmpl); 
+
+$this->table->set_heading('Video', 'Subido hace');
+
+$query = $this->db->query("SELECT nombre, fecha_subida 
+					FROM ultimos_videos");
+
+echo $this->table->generate($query); ?>
+
+</div>
+</div>
+
+<div style="float:right;">
+<?php echo anchor('/principal/index',img('/imagenes/lateral.png')); ?>
+
 </div>
 
 <?php $this->load->view('includes/pie'); ?>

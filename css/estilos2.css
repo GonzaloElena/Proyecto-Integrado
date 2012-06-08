@@ -22,14 +22,27 @@ body {
   }
 
 #cabecera_top {
+	
+	position:absolute;
 	width: 100%;
 	top:0;
 	height:0px;
 	font-family: Exocet;
+	z-index: 10;
+	
+}
 
+
+#cabecera_logo {
+	
+	clear: both;
+	top:0;
+	height: 0px;
+	z-index:5;
 }
 
 #texto_busqueda {
+	position: absolute;
 	width: 100%;
 	top:0;
 	height:0px;

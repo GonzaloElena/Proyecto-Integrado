@@ -86,5 +86,13 @@ insert into comentarios (video, usuario, puntuacion, comentario) values (6,1,5,'
 insert into comentarios (video, usuario, puntuacion, comentario) values (7,1,5,'Fabuloso');
 
 
+-- Crearemos una vista para facilitar la consulta desde la página principal de los 10 últimos videos
+
+
+drop view ultimos_videos cascade;
+
+create view ultimos_videos as select * from videos 
+				order by fecha_subida desc limit 10;
+
 
 
