@@ -31,21 +31,66 @@
 </div>
 <div class="cabecera_logo" align="center">
 
-<?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png'));
+<?php
 
+# El logo será una imagen que redirecciona la página principal
 
+ echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); 
 
-#A continuación definermos una tabla que contendrán botones de las diferentes categorías y una imagen de esa clase.
-
-
- ?>
+?>
 </div>
 
 <div style="float:left;">
-<?php echo anchor('/principal/index',img('/imagenes/lateral.png')); ?>
+
+<?php 
+
+# Vamos a crear una tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
+
+$this->load->library('table');
+
+$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
+
+$this->table->set_template($tmpl); 
+
+$this->table->set_heading('Video', 'Subido hace');
+
+$query = $this->db->query("SELECT nombre, fecha_subida 
+					FROM ultimos_videos");
+
+echo $this->table->generate($query); 
+?>
 
 </div>
 
+<div style="float:left;">
+
+<?php 
+
+# Vamos a crear una segunda tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
+
+$this->load->library('table');
+
+$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
+
+$this->table->set_template($tmpl); 
+
+$this->table->set_heading('Video', 'Subido hace');
+
+$query = $this->db->query("SELECT nombre, fecha_subida 
+					FROM ultimos_videos");
+
+echo $this->table->generate($query); 
+
+
+# Cerramos div y vamos a crear una tabla con botones para cada categoría y una imagen de la clase
+
+?>
+
+</div>
+
+
+
+<div id="div_container">
 
 <div style="float:left;">
 <table width=40% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
@@ -211,30 +256,6 @@
 </tr>
 </table>
 </div>
-<div style="float:left;">
-
-<?php 
-
-# Vamos a crear una tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
-
-$this->load->library('table');
-
-$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
-
-$this->table->set_template($tmpl); 
-
-$this->table->set_heading('Video', 'Subido hace');
-
-$query = $this->db->query("SELECT nombre, fecha_subida 
-					FROM ultimos_videos");
-
-echo $this->table->generate($query); ?>
-
-</div>
-</div>
-
-<div style="float:right;">
-<?php echo anchor('/principal/index',img('/imagenes/lateral.png')); ?>
 
 </div>
 
