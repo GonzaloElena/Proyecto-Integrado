@@ -5,7 +5,7 @@ body {
 	background-attachment:fixed; 
 	margin: 0;
 	padding: 0;
-	font-family: arial;
+	font-family:Exocet;
 	
 }
 
@@ -18,13 +18,14 @@ body {
   border:1px solid black;
   opacity:0.6;
   filter:alpha(opacity=60); 
+  font-family: Exocet;
   }
 
 #cabecera_top {
 	width: 100%;
 	top:0;
 	height:0px;
-	
+	font-family: Exocet;
 
 }
 
@@ -32,6 +33,7 @@ body {
 	width: 100%;
 	top:0;
 	height:0px;
+	font-family: Exocet;
 }
 
 
@@ -43,6 +45,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -52,6 +55,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -61,6 +65,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -70,6 +75,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -79,6 +85,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -88,6 +95,7 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
@@ -97,12 +105,13 @@ body {
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
+	font-family: Exocet;
 	-moz-border-radius: 3px;
 }
 
 h1,h2,h3,h4,h5 {
 	margin-top: 0;
-	font-family: arial black, arial;
+	font-family: Exocet;
 	text-align: center;
 }
 
@@ -111,6 +120,7 @@ input[type=text], input[type=password] {
 	margin: 0 0 1em 0;
 	width: 280px;
 	border: 5px;
+	font-family: Exocet;
 	-moz-border-radius: 1px;
 	-webkit-border-radius: 1px;
 	
@@ -124,6 +134,7 @@ input[type=submit], form a {
 	font-size: 12px;
 	-moz-border-radius: 4px;
 	background: #b22222;
+	font-family: Exocet;
 	color: black;
 	box-shadow: 0 1px 0 black;
 	-moz-box-shadow: 0 1px 0 black;
@@ -142,6 +153,7 @@ input[type=submit]:hover, form a:hover {
 .error {
 	color: #393939;
 	font-size: 15px;
+	font-family: Exocet;
 }
 
 fieldset {
@@ -149,6 +161,7 @@ fieldset {
 	margin: auto;
 	margin-bottom: 2em;
 	display: block;
+	font-family: Exocet;
 }
 
 
