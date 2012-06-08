@@ -5,40 +5,59 @@
 <h1>Alta de película</h1>
 <fieldset>
 <legend>Datos</legend>
-<?php
-   
-echo form_open('subida_video/crear_video');
 
-# Voy a crear un array de categorías para cargar el Combobox que usaré en el formulario.
+<?php echo form_open_multipart('subida_video/subir_video'); 
+
+#Formulario para la subida de videos, usaremos el form_open_multipart y mandaremos los datos al controlador
+# Habrá varios campos, nombre de video, un dropdown con las categorías, un cuadro de texto para la descripcion y una subida de archivo
+
+?>
+
+<?php echo form_input('nombre', set_value('nombre', 'Nombre'));?>
+
+<p>
+<?php echo form_label('Categoria:  ');
+
+# Definimos un array con las categorías
 
 $categorias = array(
-                        'select' => 'Seleccione una categoria',
+                       
                         'Barbarian' => 'Bárbaro',
                         'Wizard' => 'Mago',
-                        'Monk' => 'Monje',
+                        'WitchDoctor' => 'Witch Doctor',
                         'DemonHunter' => 'Demon Hunter',
-			'WitchDoctor' => 'Witch Doctor'
-             	 					);
+			'Monk' => 'Monje'
+                    );
 
-# defino las propiedades del Text Area de descripcion       
-
-$textarea = Array ("name" => "descripcion", "cols" => "30");
-
-
-# Una vez creados mostramos los diferentes campos de entrada para la creación del nuevo video.
-
-
-echo form_input('nombre', set_value('nombre', 'Nombre del video'));
-echo form_dropdown('categoria', $categorias); ?>
-
-<p>
-<?php echo form_label ('Descripción'); ?>
-</p>
-<p>
-<?php echo Form_textarea($textarea); ?>
-</p>
-<?php echo form_submit('submit', 'Crear usuario');
+echo form_dropdown('categoria', $categorias);
 ?>
+</p>
+<p>
+<?php 
+
+# Definimos un array con las características del Textarea
+
+$data = array(
+                       
+                        'name' => 'descripcion',
+                        'id' => 'descripcion',
+                        'value' => 'Escriba aquí una breve descripción del video',
+                        'cols' => '40',
+			
+                    );
+
+echo form_textarea($data);
+
+?>
+
+
+</p>
+<p>
+<input type="file" id="video" name="video" >
+</p>
+<p>
+<input type="submit" id="button" name="submit" value="Submit" />
+</p>
 
 
 <?php echo validation_errors('<p class="error">'); ?>

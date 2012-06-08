@@ -12,6 +12,8 @@ class Subida_video extends CI_Controller {
 	 }
 
 
+# Función para cargar el formulario de video
+
 public function nuevo_video()
 {
 
@@ -24,45 +26,95 @@ public function nuevo_video()
 }
 
 
+public function add_video(){
+        if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != '') {
+            unset($config);
+            $date = date("ymd");
+            $configVideo['upload_path'] = '/home/gonzalo/web/Proyecto-Integrado/videos';
+            $configVideo['max_size'] = '10240';
+            $configVideo['allowed_types'] = 'avi|flv|wmv|mp3';
+            $configVideo['overwrite'] = FALSE;
+            $configVideo['remove_spaces'] = TRUE;
 
-function crear_video()
-	{
-		$this->load->library('form_validation');
+	    $count = $this->db->count_all_results('videos');
+
+            $video_name = $count + 1;
+            $configVideo['file_name'] = $video_name;
+	    
+            $this->load->library('upload', $configVideo);
+            $this->upload->initialize($configVideo);
+            if (!$this->upload->do_upload('video')) {
+                echo $this->upload->display_errors();
+            } else {
+                $videoDetails = $this->upload->data();
+                echo "Successfully Uploaded";
+            }
+        }
+}
+
+public function subir_video() {
+
+
+# Definiremos las reglas de validación
+
+      	  $this->load->library('form_validation');
+	  $this->form_validation->set_rules('nombre', 'Nombre del video', 'trim|required|min_length[4]|max_length[50]');
+	  $this->form_validation->set_rules('descripcion', 'Descripción', 'trim|required');
+
+# Comprobaremos si se cumplen o no		
 		
 		
-		$this->form_validation->set_rules('nombre', 'Nombre del video', 'trim|required|min_length[4]|max_length[50]');
-		$this->form_validation->set_rules('descripcion', 'Descripción', 'trim|required');
+	 if($this->form_validation->run() == FALSE)
+
+	 	{
+		   $this->load->view('formulario_video');
+		}
+
+	else 
 		
-		
-		
-		if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('formulario_video');
-		}
-		
-		else
-		{			
-			$this->load->model('video');
-			
-			if($query = $this->video->crear_video())
-			{
-				$data['contenido'] = 'registro_correcto';
-				$this->load->view('includes/template', $data);
-			        
 
+# Si las reglas de validación están correctas, vamos a pasar a comprobar que la subida del video se hace correctamente
 
+	 if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != '') 
+	
+		{
 
-			}
-			else
-			{
-				$this->load->view('formulario_video');			
-			}
-		}
+# Definimos los parámetros de configuración del video, ruta, tamaño máximo, formatos aceptados,...
 
+		    unset($config);
+		    $configVideo['upload_path'] = '/home/gonzalo/web/Proyecto-Integrado/videos';
+		    $configVideo['max_size'] = '40240';
+		    $configVideo['allowed_types'] = 'avi|flv|wmv|mp3';
+		    $configVideo['overwrite'] = FALSE;
+		    $configVideo['remove_spaces'] = TRUE;
 
+# Aquí vamos a realizar una select en la base de datos, contaremos cuántos videos existen en la tabla VIDEOS
+# Extraeremos ese resultado en una variable llamada $count, le sumaremos 1 y le pondremos ese resultado como nombre al archivo
+# Esto lo hago porque a la hora de reproducir los videos los llamo por su ip, y así tengo vinculados los videos con el archivo
 
+		    $count = $this->db->count_all_results('videos');
+		    $video_name = $count + 1;
+		    $configVideo['file_name'] = $video_name;
 
- 	}
+# Cargamos la libreria de Upload e inicializamos 
+		    
+		    $this->load->library('upload', $configVideo);
+		    $this->upload->initialize($configVideo);
+
+# comprobamos si se ha realizado correctamente la subida
+
+		    if (!$this->upload->do_upload('video')) {
+		        echo $this->upload->display_errors();
+		    } else {
+		        $videoDetails = $this->upload->data();
+		        echo "Successfully Uploaded";
+		    }
+		 }	
+
+	}
+
+   }
 
 }
 
