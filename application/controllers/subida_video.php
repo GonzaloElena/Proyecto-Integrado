@@ -58,9 +58,10 @@ public function subir_video() {
 # Definiremos las reglas de validación
 
       	  $this->load->library('form_validation');
-	  $this->form_validation->set_rules('nombre', 'Nombre del video', 'trim|required|min_length[4]|max_length[50]');
-	  $this->form_validation->set_rules('descripcion', 'Descripción', 'trim|required');
-
+	  $this->form_validation->set_rules('nombre', 'Nombre del video', 'trim|required|min_length[4]|max_length[50]|callback_notDefaultNombre');
+	  $this->form_validation->set_rules('descripcion', 'Descripción', 'trim|required|callback_notDefaultDescripcion');
+	  $this->form_validation->set_rules('categoria', 'Categoría', 'trim|required|callback_notDefaultCategoria');
+	  
 # Comprobaremos si se cumplen o no		
 		
 		
@@ -76,7 +77,7 @@ public function subir_video() {
 
 # Si las reglas de validación están correctas, vamos a pasar a comprobar que la subida del video se hace correctamente
 
-	 if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != '') 
+	 if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != ' ') 
 	
 		{
 
@@ -105,10 +106,41 @@ public function subir_video() {
 # comprobamos si se ha realizado correctamente la subida
 
 		    if (!$this->upload->do_upload('video')) {
-		        echo $this->upload->display_errors();
+
+# Si hay un error avisamos al usuario
+			
+		        $data['contenido'] = 'subida_error';
+			$this->load->view('includes/template', $data);
+
 		    } else {
-		        $videoDetails = $this->upload->data();
-		        echo "Successfully Uploaded";
+
+
+# En caso contrario actualizamos la base de datos
+
+
+			$session_data = $this->session->userdata('conectado');
+			$usuario = $session_data['id_usuario'];
+			$this->load->model('video');
+				
+			if($query = $this->video->crear_video($usuario))
+			{
+				
+			$videoDetails = $this->upload->data();
+		        $data['contenido'] = 'subida_correcta';
+			$this->load->view('includes/template', $data);
+			        
+
+
+
+			}
+			else
+			{
+				 $data['contenido'] = 'subida_error';
+				$this->load->view('includes/template', $data);			
+			}
+
+
+		      
 		    }
 		 }	
 
@@ -116,6 +148,39 @@ public function subir_video() {
 
    }
 
+# Función para comprobar que el texto del Nombre no es el que se pone por defecto
+
+function notDefaultNombre($str){
+  if($str == 'Escriba aquí el nombre del video'){
+     return FALSE;
+  } else {
+     return TRUE;
+  }
+}   
+
+# Función para comprobar que el texto del Nombre no es el que se pone por defecto
+
+function notDefaultDescripcion($str){
+  if($str == 'Escriba aquí una breve descripción del video'){
+     return FALSE;
+  } else {
+     return TRUE;
+  }
+}   
+
+# Función para comprobar que el dropdown de la categoria no es el que se pone por defecto
+
+function notDefaultCategoria($str){
+  if($str == 'Default'){
+     return FALSE;
+  } else {
+     return TRUE;
+  }
+}   
+
+
 }
+
+
 
  ?>

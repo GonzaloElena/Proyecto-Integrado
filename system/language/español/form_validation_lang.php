@@ -19,7 +19,9 @@ $lang['regex_match']		= "El campo %s no tiene el formato correcto.";
 $lang['matches'] 			= 'El campo %s no coincide con el campo %s.';
 $lang['is_natural'] 		= 'El campo %s debe contener solo numeros positivos.';
 $lang['is_natural_no_zero'] = 'El campo %s debe contener un numero mayor que cero.';
-
+$lang['notDefaultNombre'] =  'Escriba un nombre para el video';
+$lang['notDefaultDescripcion'] =  'Escriba una descripción para el video';
+$lang['notDefaultCategoria'] =  'Seleccione una categoría';
 
 /* End of file form_validation_lang.php */
 /* Location: ./system/language/english/form_validation_lang.php */

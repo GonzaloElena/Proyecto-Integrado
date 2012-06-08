@@ -1,17 +1,16 @@
 <?php $this->load->view('includes/cabecera_videos_registro'); ?>
 
-<div id="registro_correcto">
+<div id="subida_error">
+<h3>Debe escoger un video para subir</h3>
+<?php
 
-<h3>Felicidades, tu video ha sido subido correctamente</h3>
-<p>
-
-<?php 
 
 # Por medio de un botón el usuario regresa a la página principal
 
 	echo form_open();
-	echo anchor('index', 'Volver a página principal');
+	echo anchor('subida_video/nuevo_video', 'Volver a formulario');
 	echo form_close();
+
 ?>
 </div>
 </p>

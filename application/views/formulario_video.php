@@ -13,7 +13,7 @@
 
 ?>
 
-<?php echo form_input('nombre', set_value('nombre', 'Nombre'));?>
+<?php echo form_input('nombre', set_value('nombre', 'Escriba aquí el nombre del video'));?>
 
 <p>
 <?php echo form_label('Categoria:  ');
@@ -22,6 +22,7 @@
 
 $categorias = array(
                        
+			'Default' => 'Seleccione una categoría',
                         'Barbarian' => 'Bárbaro',
                         'Wizard' => 'Mago',
                         'WitchDoctor' => 'Witch Doctor',

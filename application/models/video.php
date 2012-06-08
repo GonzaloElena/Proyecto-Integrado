@@ -23,24 +23,26 @@ if($data -> num_rows() > 0)
    }
   }
 
-function crear_video()
+function crear_video($usuario)
 
  {
 		
-		$nuevo_usuario = array(
+
+		$nuevo_video = array(
 			'nombre' => $this->input->post('nombre'),
-			'apellidos' => $this->input->post('apellidos'),
-			'email' => $this->input->post('email'),			
-			'login_usuario' => $this->input->post('login_usuario'),
-			'clave' => md5($this->input->post('clave'))						
+			'usuario' => $usuario,
+			'categoria' => $this->input->post('categoria'),		
+			'descripcion' => $this->input->post('descripcion'),	
+								
 		);
 		
-		$insert = $this->db->insert('usuarios', $nuevo_usuario);
+		$insert = $this->db->insert('videos', $nuevo_video);
 		return $insert;
 	}
 
 
 
-}	
+
+}
 
 ?>

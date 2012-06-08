@@ -1,4 +1,4 @@
-<?php $this->load->view('includes/cabecera_login_registro'); ?>
+<?php $this->load->view('includes/cabecera_login'); ?>
 
 <div id="registro_correcto">
 <h3>Felicidades, tu usuario ha sido creado correctamente</h3>

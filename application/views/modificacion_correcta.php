@@ -1,4 +1,4 @@
-<?php $this->load->view('includes/cabecera_login_registro'); ?>
+<?php $this->load->view('includes/cabecera_modificar_usuario'); ?>
 
 <div id="registro_correcto">
 
