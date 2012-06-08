@@ -31,17 +31,184 @@
 </div>
 <div align=center>
 
-<?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); ?>
+<?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png'));
+
+
+
+#A continuación definermos una tabla que contendrán botones de las diferentes categorías y una imagen de esa clase.
+
+
+ ?>
 </div>
 
+
 <div>
-<table width=40% border="1" align="left" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
-<th>Últimos videos</th>	
+<table width=40% border="0" align="center" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<tr>
+<th>
+<h2>Categorías</h2>
+</th>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner">Bárbaro   </div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
+<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Barbaro.png')); ?></td>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner">Mágo        </div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
+<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Wizard')); ?></td>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner">Monje        </div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
+<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Monje')); ?></td>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner">DemonHunter</div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
+<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_DemonHunter.png')); ?></td>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner">WitchDoctor</div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
+<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_WitchDoctor.png')); ?></td>
+</tr>
 </table>
 </div>
-<div>
-<table width=40% border="1" align="center" cellpadding="2" bgcolor="transparent" style="text-align: center" class="transparente"> 
-<th>Videos más votados</th>	
-</table>
-</div>
+
 <?php $this->load->view('includes/pie'); ?>
+
+
+
+

@@ -11,10 +11,10 @@ body {
 
 .transparente
   {
-  width:45%;
-  height:180px;
-  margin:30px 50px;
-  background-color:#6495ed;
+  width:1em;
+  height:1em;
+  margin:1em;
+  background-color:#b22222;;
   border:1px solid black;
   opacity:0.6;
   filter:alpha(opacity=60); 
@@ -168,6 +168,101 @@ fieldset {
 
 h1 {
 	text-shadow: 0 1px 0 white;
+}
+
+#container {
+	margin: 1px 0 0 1px;
+	text-align: center;
+	background: #000;
+	padding: 2px 2px 3px;
+	cursor: pointer;
+} #border1 {
+	border: 1px solid #332d2c;
+	padding: 1px;
+} #container:hover #radialgradient {
+	background: #200c04;
+	background: -webkit-gradient(radial, 50% 520%, 160, 50% 520%, 250, from(#e24525), to(#200c04));
+	background: -moz-radial-gradient(50% 520%, circle, #e24525 160px, #200c04 250px);
+} #radialgradient {
+	background: #212121;
+	background: -webkit-gradient(radial, 50% 520%, 160, 50% 520%, 250, from(#6b1908), to(#212121));
+	background: -moz-radial-gradient(50% 520%, circle, #6b1908 160px, #212121 250px);
+} #gloss {
+	background: -webkit-gradient(linear, 0 0, 0 100%,  color-stop(0, transparent), color-stop(0.2, #2a2a2a), color-stop(0.4, #353535), color-stop(0.6, transparent));
+	background: -moz-linear-gradient(top, transparent 0, #2a2a2a 20%, #353535 40%, transparent 60%);
+} #container:hover #gloss {
+	background: -webkit-gradient(linear, 0 0, 0 100%,  color-stop(0, transparent), color-stop(0.2, #2a1710), color-stop(0.4, #47291f), color-stop(0.6, transparent));
+	background: -moz-linear-gradient(top, transparent 0, #2a1710 20%, #47291f 40%, transparent 60%);
+} #inner {
+	color: #fff;
+	border-top: 1px solid #433d3c;
+	padding: 6px 45px;
+	font-size: 14px;
+	font-family: Exocet;
+} #container:hover #inner {
+	border-top: 1px solid #53342d;
+	padding: 6px 45px;
+	font-size: 14px;
+	font-family: Exocet;
+	text-shadow: 0 0 8px #ff2b03;
+} #gradientbottom {
+	height: 3px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#200c04), to(#1d0905));
+	background: -moz-linear-gradient(top, #200c04, #1d0905);
+	opacity: 0.4;
+} #leftornament {
+	width: 1px;
+	height: 100%;
+	float: left;
+	border-left: 1px solid #42372a;
+	border-right: 1px solid #b09975;
+	background: #5c4d3d;
+} #ornaments {
+	background: #5c4d3d;
+	padding: 0 2px;
+	border-left: 1px solid #42372a;
+	border-right: 1px solid #42372a;
+	position: relative;
+} #moreornaments {
+	border-left: 1px solid #b09975;
+	border-right: 1px solid #b09975;
+} .triangle {
+	border: 4px solid #5c4d3d;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	position: absolute;
+} .triangle.bg {
+	border: 4px solid #b09975;
+} .triangle.top {
+	top: 0;
+	border-bottom: 4px solid transparent;
+} .triangle.left {
+	left: 2px;
+	border-right: 4px solid transparent;
+} .triangle.bg.left {
+	left: 3px;
+} .triangle.bottom {
+	bottom: 0;
+	border-top: 4px solid transparent;
+} .triangle.right {
+	right: 2px;
+	border-left: 4px solid transparent;
+} .triangle.bg.right {
+	right: 3px;
+} .triangle.middle {
+	border: 4px solid #5c4d3d;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+} .triangle.bg.middle {
+	border: 4px solid #b09975;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+} .triangle.middle.left {
+	top: 40%;
+	border-right: 4px solid transparent;
+} .triangle.middle.right {
+	top: 40%;
+	border-left: 4px solid transparent;
 }
 
 
