@@ -1,6 +1,7 @@
 <?php $this->load->view('includes/cabecera_principal');
 ?>
 
+
 <div id="cabecera_top">
 
 <?php 
@@ -46,20 +47,31 @@
 
 <?php 
 
-# Vamos a crear una tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
+# Muestro la tabla que el controlador me ha mandado
 
-$this->load->library('table');
 
-$tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
+	     $this->load->library('table');
 
-$this->table->set_template($tmpl); 
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
 
-$this->table->set_heading('<strong>Videos más recientes</strong>', '<strong>Subido hace</strong>');
 
-$query = $this->db->query("SELECT nombre, fecha 
-					FROM ultimos_videos");
+	     $this->table->set_heading('<strong>Videos más recientes</strong>', '<strong>Subido hace</strong>');
 
-echo $this->table->generate($query); 
+	     $this->table->set_template($tmpl); 
+
+	     $query = $this->db->query("SELECT nombre, fecha FROM ultimos_videos");
+		
+	    
+
+
+foreach($query->result() as $dato):
+    $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+    $array[1] = $dato->fecha;   
+    $this->table->add_row($array);
+endforeach;
+
+echo $this->table->generate();  
+
 ?>
 
 </div>
@@ -68,21 +80,12 @@ echo $this->table->generate($query);
 
 <?php 
 
-# Vamos a crear una segunda tabla usando la libería table nativa de CI, y ejecutando una select sencilla desde la vista que creamos en la DB
-
-$this->load->library('table');
-
-$tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
+# Muestro la otra tabla
 
 
-$this->table->set_template($tmpl); 
+echo $tabla2;
 
-$this->table->set_heading('Videos más recientes', 'Subido hace');
 
-$query = $this->db->query("SELECT nombre, fecha 
-					FROM ultimos_videos");
-
-echo $this->table->generate($query); 
 
 
 # Cerramos div y vamos a crear una tabla con botones para cada categoría y una imagen de la clase

@@ -103,5 +103,12 @@ create view ultimos_videos as select nombre, usuario, categoria, descripcion,
 		else trunc(extract(epoch from current_timestamp -fecha_subida)/3600) || ' Horas '  END as fecha from videos order by fecha_subida desc limit 10;
 
 
+-- Vamos a crear una vista más sencilla para calcular los 10 videos mejor valorados (En función a su puntuación media)
+
+drop view puntuacion_videos cascade;
+
+create view puntuacion_videos as select (select nombre from videos where id_video=video), ROUND(AVG(puntuacion)), count(video) 
+					from comentarios group by video order by A^C(puntuacion) desc limit 10;
+
 
 

@@ -3,7 +3,11 @@
 Class Video extends CI_Model
 {
 
+
+# Función que busca los videos en función a la palabra que le pasamos
+
 function buscar_video($palabra)
+
 {
 	  
 $this -> db -> select('id_video, nombre, , usuario, categoria, descripcion');
@@ -23,6 +27,10 @@ if($data -> num_rows() > 0)
    }
   }
 
+
+
+# Función para crear videos 
+
 function crear_video($usuario)
 
  {
@@ -38,7 +46,8 @@ function crear_video($usuario)
 		
 		$insert = $this->db->insert('videos', $nuevo_video);
 		return $insert;
-	}
+ }
+
 
 
 

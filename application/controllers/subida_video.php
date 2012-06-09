@@ -26,32 +26,6 @@ public function nuevo_video()
 }
 
 
-public function add_video(){
-        if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != '') {
-            unset($config);
-            $date = date("ymd");
-            $configVideo['upload_path'] = '/home/gonzalo/web/Proyecto-Integrado/videos';
-            $configVideo['max_size'] = '10240';
-            $configVideo['allowed_types'] = 'avi|flv|wmv|mp3';
-            $configVideo['overwrite'] = FALSE;
-            $configVideo['remove_spaces'] = TRUE;
-
-	    $count = $this->db->count_all_results('videos');
-
-            $video_name = $count + 1;
-            $configVideo['file_name'] = $video_name;
-	    
-            $this->load->library('upload', $configVideo);
-            $this->upload->initialize($configVideo);
-            if (!$this->upload->do_upload('video')) {
-                echo $this->upload->display_errors();
-            } else {
-                $videoDetails = $this->upload->data();
-                echo "Successfully Uploaded";
-            }
-        }
-}
-
 public function subir_video() {
 
 
