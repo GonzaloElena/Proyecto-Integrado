@@ -91,8 +91,17 @@ insert into comentarios (video, usuario, puntuacion, comentario) values (7,1,5,'
 
 drop view ultimos_videos cascade;
 
-create view ultimos_videos as select * from videos 
-				order by fecha_subida desc limit 10;
+create view ultimos_videos as select nombre, usuario, categoria, descripcion,
+		
+	  case  when  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) = 0  then   ' « 1 Minuto '
+		when  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) = 1  then     trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) || ' Minuto '
+		when  (trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) < 1) then  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) || ' Minutos '
+		when  (trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) = 1) then  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) || ' Hora '
+		when (trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) < 24 ) then trunc(extract(epoch from current_timestamp -fecha_subida)/3600) || ' Horas '
+		when (trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) = 24 ) then trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/86400) || ' Día '
+  		when (trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/3600) > 24 ) then trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/86400) || ' Días '  
+		else trunc(extract(epoch from current_timestamp -fecha_subida)/3600) || ' Horas '  END as fecha from videos order by fecha_subida desc limit 10;
+
 
 
 

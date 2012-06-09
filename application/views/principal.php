@@ -40,6 +40,8 @@
 ?>
 </div>
 
+
+
 <div style="float:left;">
 
 <?php 
@@ -48,13 +50,13 @@
 
 $this->load->library('table');
 
-$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
+$tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
 
 $this->table->set_template($tmpl); 
 
-$this->table->set_heading('Video', 'Subido hace');
+$this->table->set_heading('<strong>Videos más recientes</strong>', '<strong>Subido hace</strong>');
 
-$query = $this->db->query("SELECT nombre, fecha_subida 
+$query = $this->db->query("SELECT nombre, fecha 
 					FROM ultimos_videos");
 
 echo $this->table->generate($query); 
@@ -70,13 +72,14 @@ echo $this->table->generate($query);
 
 $this->load->library('table');
 
-$tmpl = array ( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="1" class="transparente" row>' );
+$tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
+
 
 $this->table->set_template($tmpl); 
 
-$this->table->set_heading('Video', 'Subido hace');
+$this->table->set_heading('Videos más recientes', 'Subido hace');
 
-$query = $this->db->query("SELECT nombre, fecha_subida 
+$query = $this->db->query("SELECT nombre, fecha 
 					FROM ultimos_videos");
 
 echo $this->table->generate($query); 
@@ -257,7 +260,8 @@ echo $this->table->generate($query);
 </table>
 </div>
 
-</div>
+
+
 
 <?php $this->load->view('includes/pie'); ?>
 
