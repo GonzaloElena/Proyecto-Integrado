@@ -42,10 +42,10 @@
 </div>
 
 
-<div id="div_container" align="left">
+<div id="div_container">
 
 
-<table width=20% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width=40% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -209,8 +209,7 @@
 </table>
 </div>
 
-<div align = "center">
-
+<div id="div_superior" align= "center">
 <?php 
 
 # Muestro la tabla que el controlador me ha mandado
@@ -223,7 +222,9 @@ echo $tabla;
 
 </div>
 
-<div align = "center">
+
+
+<div id="div_inferior" align= "center">
 
 <?php 
 

@@ -56,12 +56,28 @@ body {
 #div_container {
 	
 	
-	width: 100%;
+	width:20%;
 	top:0;
 	height:0px;
 	font-family: Exocet;
-	z-index: 10;
 	
+	
+}
+
+ #div_superior {
+
+clear:both;
+top:0px;
+left:0px;
+z-index:10;
+}
+
+#div_inferior{
+
+clear:both;
+top:0px;
+left:0px;
+z-index:10;
 }
 
 
