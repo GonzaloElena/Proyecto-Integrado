@@ -23,7 +23,7 @@
 	     $data['nombre'] = $session_data['nombre'];
 	     $data['apellidos'] = $session_data['apellidos'];
 	     $data['email'] = $session_data['email'];
-	     
+	     $data['tabla'] = $this->generar_tabla_ultimos();
 	     $data['tabla2'] = $this->generar_tabla_votados();
 	     
 		
@@ -44,31 +44,74 @@
 	function generar_tabla_ultimos()
 	
 	{
+		
+
+# Cargamos la librería  y vamos configurando los diferentes parámetros de la tabla, apoyándonos siempre en los métodos de CI
+
+	     $this->load->library('table');
+
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" cellspacing="10" align="center">', );
+
+	     $this->table->set_heading('<h2>Videos más recientes</h2>', '<h2>Subido hace</h2>');
+
+	     $this->table->set_template($tmpl); 
+
+# Una vez configurada hacemos la select de la vista que creamos en nuestro archivo SQL.
+
+	     $query = $this->db->query("SELECT nombre, fecha FROM ultimos_videos");
+		
+	    
+# El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
+
+	     foreach($query->result() as $dato):
+	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+             $array[1] = $dato->fecha;   
+	     $this->table->add_row($array);
+             endforeach;
+
+# Una vez tratado lo devolvemos
+
+	     return  $this->table->generate();  
 	 	
 	}
 
-# Crearemos la otra tabla para mostrar los videos más votados 
+# Crearemos la otra tabla para mostrar los videos más votados repetiremos el proceso del método anterio
 
 
 	function generar_tabla_votados()
 	
 	{
-	 	
+	     
+
 	     $this->load->library('table');
 
-	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" cellspacing="10" align="center">', );
+
+	     $this->table->set_heading('<h2>Videos mejor valorados</h2>', '<h2>Valoracion</h2>');
 
 	     $this->table->set_template($tmpl); 
 
-	     $this->table->set_heading('<strong>Video mejor valorados</strong>', '<strong>Valoracion</strong>');
+
+# Una vez configurada hacemos la select de la vista que creamos en nuestro archivo SQL.
 
 	     $query = $this->db->query("SELECT nombre, media FROM puntuacion_videos");
+		
+	    
+# El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
 
-	     $tabla = $this->table->generate($query); 
-	  	
- 	     return $tabla;	
+	     foreach($query->result() as $dato):
+	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+             $array[1] = $dato->media;   
+	     $this->table->add_row($array);
+             endforeach;
 
+# Una vez tratado lo devolvemos
+
+	     return  $this->table->generate();  
+	 	
 	}
+
+	   
 
 
 }

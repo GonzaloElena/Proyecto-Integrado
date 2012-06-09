@@ -1,3 +1,16 @@
+/* Configuraremos el estilo de los links */
+
+
+
+A:link {text-decoration: none;
+	color: white;}
+A:visited {text-decoration: none}
+A:active {text-decoration: none}
+A:hover {color: red;}
+
+
+/* Configuramos ahora el Cuerpo */
+
 
 body {
 	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/4.jpg');
@@ -10,95 +23,108 @@ body {
 	
 }
 
-.transparente
-  {
-  width:400px;
-  height:180px;
-  margin:30px 50px;
-  background-color: #b22222;;
-  border:1px solid black;
-  font-family: Exocet;
-  opacity:0.6;
-  filter:alpha(opacity=60); 
-  }
+
+/* Formularios de la web */
 
 #formulario_login {
 	width: 300px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 #formulario_registro {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 #formulario_video {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 
 #registro_correcto {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 #modificacion_correcta {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 #subida_correcta {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
 #subida_error {
 	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
 	border: 1px solid white;
 	margin: 250px auto 0;
 	padding: 1em;
 	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
 }
 
+
+/* Texto de Headers */
 
 h1,h2,h3,h4,h5 {
 	margin-top: 0;
 	font-family: Exocet;
 	text-align: center;
+	text-shadow: 0 1px 0 white;
 }
+
+
+
+/* Diferentes Inputs, bien texto, submits, anchor,..... */
+
 
 input[type=text], input[type=password] {
 	display: block;
@@ -119,7 +145,7 @@ input[type=submit], form a {
 	font-size: 12px;
 	font-family: Exocet;
 	-moz-border-radius: 4px;
-	background: #348075;
+	background: #b22222;
 	color: white;
 	box-shadow: 0 1px 0 white;
 	-moz-box-shadow: 0 1px 0 white;
@@ -128,12 +154,14 @@ input[type=submit], form a {
 }
 
 input[type=submit]:hover, form a:hover {
-	background: #287368;
+	background:#b22222;
 	cursor: pointer;
-}
+	color: red;
+}	
 
 
 
+/* Error y Fieldset */
 
 .error {
 	color: #393939;
@@ -148,142 +176,6 @@ fieldset {
 	display: block;	
 	font-family: Exocet;
 }
-
-
-
-h1 {
-	text-shadow: 0 1px 0 white;
-}
-
-#container {
-	margin: 1px 0 0 1px;
-	text-align: center;
-	background: #000;
-	padding: 2px 2px 3px;
-	cursor: pointer;
-} #border1 {
-	border: 1px solid #332d2c;
-	padding: 1px;
-} #container:hover #radialgradient {
-	background: #200c04;
-	background: -webkit-gradient(radial, 50% 520%, 160, 50% 520%, 250, from(#e24525), to(#200c04));
-	background: -moz-radial-gradient(50% 520%, circle, #e24525 160px, #200c04 250px);
-} #radialgradient {
-	background: #212121;
-	background: -webkit-gradient(radial, 50% 520%, 160, 50% 520%, 250, from(#6b1908), to(#212121));
-	background: -moz-radial-gradient(50% 520%, circle, #6b1908 160px, #212121 250px);
-} #gloss {
-	background: -webkit-gradient(linear, 0 0, 0 100%,  color-stop(0, transparent), color-stop(0.2, #2a2a2a), color-stop(0.4, #353535), color-stop(0.6, transparent));
-	background: -moz-linear-gradient(top, transparent 0, #2a2a2a 20%, #353535 40%, transparent 60%);
-} #container:hover #gloss {
-	background: -webkit-gradient(linear, 0 0, 0 100%,  color-stop(0, transparent), color-stop(0.2, #2a1710), color-stop(0.4, #47291f), color-stop(0.6, transparent));
-	background: -moz-linear-gradient(top, transparent 0, #2a1710 20%, #47291f 40%, transparent 60%);
-} #inner {
-	color: #fff;
-	border-top: 1px solid #433d3c;
-	padding: 6px 45px;
-	font-size: 14px;
-	font-family: Exocet;
-} #container:hover #inner {
-	border-top: 1px solid #53342d;
-	padding: 6px 45px;
-	font-size: 14px;
-	font-family: Exocet;
-	text-shadow: 0 0 8px #ff2b03;
-} #gradientbottom {
-	height: 3px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#200c04), to(#1d0905));
-	background: -moz-linear-gradient(top, #200c04, #1d0905);
-	opacity: 0.4;
-} #leftornament {
-	width: 1px;
-	height: 100%;
-	float: left;
-	border-left: 1px solid #42372a;
-	border-right: 1px solid #b09975;
-	background: #5c4d3d;
-} #ornaments {
-	background: #5c4d3d;
-	padding: 0 2px;
-	border-left: 1px solid #42372a;
-	border-right: 1px solid #42372a;
-	position: relative;
-} #moreornaments {
-	border-left: 1px solid #b09975;
-	border-right: 1px solid #b09975;
-} .triangle {
-	border: 4px solid #5c4d3d;
-	border-radius: 2px;
-	-moz-border-radius: 2px;
-	position: absolute;
-} .triangle.bg {
-	border: 4px solid #b09975;
-} .triangle.top {
-	top: 0;
-	border-bottom: 4px solid transparent;
-} .triangle.left {
-	left: 2px;
-	border-right: 4px solid transparent;
-} .triangle.bg.left {
-	left: 3px;
-} .triangle.bottom {
-	bottom: 0;
-	border-top: 4px solid transparent;
-} .triangle.right {
-	right: 2px;
-	border-left: 4px solid transparent;
-} .triangle.bg.right {
-	right: 3px;
-} .triangle.middle {
-	border: 4px solid #5c4d3d;
-	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-} .triangle.bg.middle {
-	border: 4px solid #b09975;
-	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-} .triangle.middle.left {
-	top: 40%;
-	border-right: 4px solid transparent;
-} .triangle.middle.right {
-	top: 40%;
-	border-left: 4px solid transparent;
-}
-
-    .rate_widget {  
-        border:     1px solid #CCC;  
-        overflow:   visible;  
-        padding:    10px;  
-        position:   relative;  
-        width:      180px;  
-        height:     32px;  
-    }  
-    .ratings_stars {  
-        background: url('star_empty.png') no-repeat;  
-        float:      left;  
-        height:     28px;  
-        padding:    2px;  
-        width:      32px;  
-    }  
-    .ratings_vote {  
-        background: url('star_full.png') no-repeat;  
-    }  
-    .ratings_over {  
-        background: url('star_highlight.png') no-repeat;  
-    }  
-
-    .total_votes {  
-        background: #eaeaea;  
-        top: 58px;  
-        left: 0;  
-        padding: 5px;  
-        position:   absolute;  
-    }  
-    .movie_choice {  
-        font: 10px verdana, sans-serif;  
-        margin: 0 auto 40px auto;  
-        width: 180px;  
-    }  
 
 
 

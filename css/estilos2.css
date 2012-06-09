@@ -1,3 +1,15 @@
+/* Configuraremos el estilo de los links */
+
+
+
+A:link {text-decoration: none; color: white;}
+A:visited {text-decoration: none; color: black;}
+A:active {text-decoration: none}
+A:hover {color: red;}
+
+
+/* Configuramos ahora el Cuerpo y la tablas que usaremos */
+
 body {
 	 background-image:url('http://localhost/web/Proyecto-Integrado/imagenes/2.jpg');
         background-position:expanded;
@@ -6,6 +18,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family:Exocet;
+	
 	
 }
 
@@ -16,14 +29,33 @@ body {
   margin:1em;
   background-color:#b22222;;
   border:1px solid black;
-  opacity:0.6;
-  filter:alpha(opacity=60); 
+  opacity:0.7;
+  filter:alpha(opacity=70); 
   font-family: Exocet;
+  text-align:center;
   }
+
+.transparente a:link {text-decoration: none; color: white;}
+.transparente a:visited {text-decoration: none; color: white;}
+.transparente a:active {text-decoration: none}
+.transparente a:hover {text-decoration: none; color: red;}
+
+/* Cabeceras principales de la página */
 
 #cabecera_top {
 	
-	position:absolute;
+	
+	width: 100%;
+	top:0;
+	height:0px;
+	font-family: Exocet;
+	z-index: 10;
+	
+}
+
+#div_container {
+	
+	
 	width: 100%;
 	top:0;
 	height:0px;
@@ -42,7 +74,7 @@ body {
 }
 
 #texto_busqueda {
-	position: absolute;
+	
 	width: 100%;
 	top:0;
 	height:0px;
@@ -51,82 +83,19 @@ body {
 
 
 
-
-#formulario_login {
-	width: 300px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#formulario_registro {
-	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#formulario_video {
-	width: 300px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#registro_correcto {
-	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#modificacion_correcta {
-	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#subida_correcta {
-	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
-
-#subida_error {
-	width: 400px;
-	background: #696969 url(../imgagenes/login_bg.jpg) repeat-x 0 0;
-	border: 1px solid white;
-	margin: 250px auto 0;
-	padding: 1em;
-	font-family: Exocet;
-	-moz-border-radius: 3px;
-}
+/* Texto de Headers */
 
 h1,h2,h3,h4,h5 {
 	margin-top: 0;
 	font-family: Exocet;
 	text-align: center;
+	text-shadow: 0 1px 0 white;
 }
+
+
+
+/* Diferentes Inputs, bien texto, submits, anchor,..... */
+
 
 input[type=text], input[type=password] {
 	display: block;
@@ -158,10 +127,12 @@ input[type=submit], form a {
 input[type=submit]:hover, form a:hover {
 	background: #b22222;
 	cursor: pointer;
+	color: red;
 }
 
 
 
+/* Error y Fieldset */
 
 .error {
 	color: #393939;
@@ -179,11 +150,12 @@ fieldset {
 
 
 
-h1 {
-	text-shadow: 0 1px 0 white;
-}
+
+/* En esta párte de la hoja de estilos vamos a configurar los botones de la sección de categoria/clase */
+
 
 #container {
+	
 	margin: 1px 0 0 1px;
 	text-align: center;
 	background: #000;
@@ -278,39 +250,4 @@ h1 {
 	border-left: 4px solid transparent;
 }
 
-    .rate_widget {  
-        border:     1px solid #CCC;  
-        overflow:   visible;  
-        padding:    10px;  
-        position:   relative;  
-        width:      180px;  
-        height:     32px;  
-    }  
-    .ratings_stars {  
-        background: url('star_empty.png') no-repeat;  
-        float:      left;  
-        height:     28px;  
-        padding:    2px;  
-        width:      32px;  
-    }  
-    .ratings_vote {  
-        background: url('star_full.png') no-repeat;  
-    }  
-    .ratings_over {  
-        background: url('star_highlight.png') no-repeat;  
-    }  
-
-    .total_votes {  
-        background: #eaeaea;  
-        top: 58px;  
-        left: 0;  
-        padding: 5px;  
-        position:   absolute;  
-    }  
-    .movie_choice {  
-        font: 10px verdana, sans-serif;  
-        margin: 0 auto 40px auto;  
-        width: 180px;  
-    }  
-
-
+  

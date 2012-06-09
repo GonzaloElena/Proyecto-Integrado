@@ -29,7 +29,7 @@
 ?>
 
 
-</div>
+</div >
 <div class="cabecera_logo" align="center">
 
 <?php
@@ -42,64 +42,10 @@
 </div>
 
 
-
-<div style="float:left;">
-
-<?php 
-
-# Muestro la tabla que el controlador me ha mandado
+<div id="div_container" align="left">
 
 
-	     $this->load->library('table');
-
-	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 100%;" cellpadding="5" cellspacing="10" >', );
-
-
-	     $this->table->set_heading('<strong>Videos más recientes</strong>', '<strong>Subido hace</strong>');
-
-	     $this->table->set_template($tmpl); 
-
-	     $query = $this->db->query("SELECT nombre, fecha FROM ultimos_videos");
-		
-	    
-
-
-foreach($query->result() as $dato):
-    $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
-    $array[1] = $dato->fecha;   
-    $this->table->add_row($array);
-endforeach;
-
-echo $this->table->generate();  
-
-?>
-
-</div>
-
-<div style="float:left;">
-
-<?php 
-
-# Muestro la otra tabla
-
-
-echo $tabla2;
-
-
-
-
-# Cerramos div y vamos a crear una tabla con botones para cada categoría y una imagen de la clase
-
-?>
-
-</div>
-
-
-
-<div id="div_container">
-
-<div style="float:left;">
-<table width=40% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width=20% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -134,7 +80,7 @@ echo $tabla2;
 	</div>
 </div>
 </td>
-<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Barbaro.png')); ?></td>
+<td><?php echo img('imagenes/Retrato_Barbaro.png') ?></td>
 </tr>
 <tr>
 <td>
@@ -165,7 +111,7 @@ echo $tabla2;
 	</div>
 </div>
 </td>
-<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Wizard')); ?></td>
+<td><?php echo img('imagenes/Retrato_Wizard.png') ?></td>
 </tr>
 <tr>
 <td>
@@ -196,7 +142,7 @@ echo $tabla2;
 	</div>
 </div>
 </td>
-<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_Monje')); ?></td>
+<td><?php echo img('imagenes/Retrato_Monje.png') ?></td>
 </tr>
 <tr>
 <td>
@@ -227,7 +173,7 @@ echo $tabla2;
 	</div>
 </div>
 </td>
-<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_DemonHunter.png')); ?></td>
+<td><?php echo img('imagenes/Retrato_DemonHunter.png') ?></td>
 </tr>
 <tr>
 <td>
@@ -258,10 +204,46 @@ echo $tabla2;
 	</div>
 </div>
 </td>
-<td><?php echo anchor('/principal/index',img('/imagenes/Retrato_WitchDoctor.png')); ?></td>
+<td><?php echo img('imagenes/Retrato_WitchDoctor.png') ?></td>
 </tr>
 </table>
 </div>
+
+<div align = "center">
+
+<?php 
+
+# Muestro la tabla que el controlador me ha mandado
+
+
+
+echo $tabla;
+
+?>
+
+</div>
+
+<div align = "center">
+
+<?php 
+
+# Muestro la otra tabla
+
+
+echo $tabla2;
+
+
+
+
+# Cerramos div y vamos a crear una tabla con botones para cada categoría y una imagen de la clase
+
+?>
+
+</div>
+
+
+
+
 
 
 
