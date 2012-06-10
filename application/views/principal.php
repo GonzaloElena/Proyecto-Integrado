@@ -24,7 +24,7 @@
 
 	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
-        echo form_submit('busqueda/index', 'Buscar'); 
+        echo form_submit ('submit', 'Buscar'); 
     	echo form_close();  
 
 ?>
@@ -44,7 +44,7 @@
 <div id="div_container">
 
 
-<table width=40% border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width="1em" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -58,7 +58,11 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">Bárbaro    </div>
+						<div id="inner"><?php echo form_open('busqueda_vistas/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos_barbaros">
+					 	<button type="submit" value="Submit">Bárbaro</button>
+					    	<?php echo form_close();  ?>
+   						</div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>
@@ -207,6 +211,8 @@
 </tr>
 </table>
 </div>
+
+
 
 <div id="div_superior" align= "center">
 <?php 

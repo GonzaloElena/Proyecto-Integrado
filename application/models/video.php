@@ -82,8 +82,8 @@ function crear_video($usuario)
 
 public function busqueda($limit, $start) {
 
-$this->db->limit($limit, $start);
-$query = $this->db-> get('videos');
+$this->db->limit($limit, $start, $palabra);
+$query = $this->db-> get("$palabra");
 
  if ($query->num_rows() > 0) {
 	            foreach ($query->result() as $row) {
@@ -108,8 +108,17 @@ return $query;
 
 }
 
+public function comprobar_palabra($palabra) {
 
 
+$query = $this->db->query("select nombre, (select nombre from usuarios where usuario=id_usuario) as usuario, date (fecha_subida) as fecha, descripcion
+from videos where nombre like '%$palabra%' order by id_video desc;");
+
+$num = $query->num_rows();
+
+return $num;
+
+}
 
 
 }

@@ -35,12 +35,19 @@ body {
   font-family: Exocet;
   font-size: 10px;
   text-align:center;
+
+  
   }
 
 .transparente a:link {text-decoration: none; color: white;}
 .transparente a:visited {text-decoration: none; color: white;}
 .transparente a:active {text-decoration: none}
 .transparente a:hover {text-decoration: none; color: red;}
+
+
+
+		
+
 
 /* Cabeceras principales de la página */
 
@@ -100,6 +107,19 @@ z-index:10;
 }
 
 
+#div_error {
+	width: 400px;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
+	border: 0 solid white;
+	margin: 1em auto 0;
+	padding: 1em;
+	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
+	-moz-border-radius: 3px;
+}
+
+
 
 /* Texto de Headers */
 
@@ -142,10 +162,36 @@ input[type=submit], form a {
 
 }
 
+input[type=enviar], form a {
+	border: none;
+	margin-right: 1em;
+	padding: 6px;
+	text-decoration: none;
+	font-size: 12px;
+	-moz-border-radius: 4px;
+	background: #b22222;
+	font-family: Exocet;
+	color: black;
+	box-shadow: 0 1px 0 black;
+	-moz-box-shadow: 0 1px 0 black;
+	-webkit-box-shadow: 0 1px 0 black;
+
+}
+
 input[type=submit]:hover, form a:hover {
 	background: #b22222;
 	cursor: pointer;
 	color: red;
+}
+
+
+
+button {
+  color: white;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  font-family: Exocet;
 }
 
 
@@ -165,6 +211,8 @@ fieldset {
 	display: block;
 	font-family: Exocet;
 }
+
+
 
 
 /* Atributos de la paginación */
