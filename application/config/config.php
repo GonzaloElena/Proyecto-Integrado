@@ -40,7 +40,7 @@ $config['newline'] = "\r\n";
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/web/Proyecto-Integrado';
+$config['base_url']	= "http://localhost/web/Proyecto-Integrado";
 
 /*
 |--------------------------------------------------------------------------

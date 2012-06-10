@@ -25,9 +25,39 @@ if($data -> num_rows() > 0)
 {
  return false;
    }
+ }
+
+
+# Función que busca todos los videos
+
+function mostrar_videos()
+
+{
+	  
+$this -> db -> select('*');
+$this -> db -> from('videos');
+
+ 
+$data= $this -> db -> get();
+	 
+if($data -> num_rows() > 0)
+{
+  return $data->result_array();
+ }
+  else
+{
+ return false;
+   }
   }
 
 
+# Función para calcular el total de videos
+
+function total_videos()
+		{
+			 
+			return $this->db->count_all('videos');
+		}
 
 # Función para crear videos 
 
@@ -48,10 +78,22 @@ function crear_video($usuario)
 		return $insert;
  }
 
+# Búsqueda paginada
 
+public function busqueda($limit, $start) {
 
+$this->db->limit($limit, $start);
+$query = $this->db-> get('videos');
 
+ if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
 
+	   }
 }
 
 ?>

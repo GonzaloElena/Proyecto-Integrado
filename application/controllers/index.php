@@ -50,7 +50,7 @@
 
 	     $this->load->library('table');
 
-	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" cellspacing="10" align="center">', );
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" font-size="20px" cellspacing="10" align="center">', );
 
 	     $this->table->set_heading('<h2>Videos más recientes</h2>', '<h2>Subido hace</h2>');
 
@@ -85,7 +85,7 @@
 
 	     $this->load->library('table');
 
-	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" cellspacing="10" align="center">', );
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" font-size="20px"cellspacing="10" align="center">', );
 
 	     $this->table->set_heading('<h2>Videos mejor valorados</h2>', '<h2>Valoracion</h2>');
 

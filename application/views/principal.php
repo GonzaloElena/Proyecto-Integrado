@@ -24,11 +24,10 @@
 
 	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
-        echo form_submit ('Submit', 'Buscar'); 
-    	echo form_close(); 
+        echo anchor ('busqueda/index', 'Buscar'); 
+    	echo form_close();  
+
 ?>
-
-
 </div >
 <div class="cabecera_logo" align="center">
 

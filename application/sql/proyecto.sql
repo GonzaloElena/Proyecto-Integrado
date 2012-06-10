@@ -107,7 +107,7 @@ create view ultimos_videos as select nombre, usuario, categoria, descripcion,
 
 drop view puntuacion_videos cascade;
 
-create view puntuacion_videos as select (select nombre from videos where id_video=video), ROUND(AVG(puntuacion)), count(video) 
+create view puntuacion_videos as select (select nombre from videos where id_video=video) as nombre, ROUND(AVG(puntuacion)) as media, count(video) 
 					from comentarios group by video order by AVG(puntuacion) desc limit 10;
 
 
