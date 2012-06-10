@@ -24,7 +24,7 @@
 
 	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
-        echo anchor ('busqueda/index', 'Buscar'); 
+        echo form_submit('busqueda/index', 'Buscar'); 
     	echo form_close();  
 
 ?>
@@ -58,7 +58,7 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">Bárbaro   </div>
+						<div id="inner">Bárbaro    </div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>

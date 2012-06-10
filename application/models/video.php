@@ -94,6 +94,24 @@ $query = $this->db-> get('videos');
 	        return false;
 
 	   }
+
+# Búsqueda paginada con parámetros de texto
+
+
+public function busqueda_palabra($limit, $start, $palabra) {
+
+$this->db->limit($limit, $start);
+$query = $this->db->query("select nombre, (select nombre from usuarios where usuario=id_usuario) as usuario, date (fecha_subida) as fecha, descripcion
+from videos where nombre like '%$palabra%' order by id_video desc;");
+
+return $query;
+
+}
+
+
+
+
+
 }
 
 ?>

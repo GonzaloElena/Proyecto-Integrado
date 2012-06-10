@@ -110,5 +110,14 @@ drop view puntuacion_videos cascade;
 create view puntuacion_videos as select (select nombre from videos where id_video=video) as nombre, ROUND(AVG(puntuacion)) as media, count(video) 
 					from comentarios group by video order by AVG(puntuacion) desc limit 10;
 
+-- Vistas para ver los videos de las diferentes categorías
 
+create view videos_magos as select * from videos where categoria = 'Wizard';
 
+create view videos_barbaros as select * from videos where categoria = 'Barbarian';
+
+create view videos_brujos as select * from videos where categoria = 'WitchDoctor';
+
+create view videos_monjes as select * from videos where categoria = 'Monk';
+
+create view videos_demonhunter as select * from videos where categoria = 'DemonHunter';
