@@ -1,39 +1,55 @@
-
-
-
 <?php $this->load->view('includes/cabecera_principal');
 ?>
 
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+
 <div id="cabecera_top">
+
 <?php 
 	
+# Abrimos el form y vamos a habilitar 3 botones, uno para editar usuario al que le pasamos el login
+# Otro para desconectar el ususario y un último para la subida de un video.
+
 	echo form_open();
 	echo anchor ("usuarios/editar/$login_usuario", $login_usuario);
 	echo anchor('login/logout', 'Desconectarse');
-	echo anchor ('subida_video/nuevo_video','Subir película');
+	echo anchor ('subida_video/nuevo_video', 'Subir película');
 	echo form_close();
 ?>
 </div>
-<div id="texto_busqueda" align=right>
+
+<div id="texto_busqueda" align="right">
 <?php 
+
+# Creamos un textbox para que el usuario pueda introducir una cadena y buscarla en la base de datos
+
 	echo form_open('busqueda');
         echo form_input('palabra', set_value('palabra', 'Introduzca la búsqueda'));
-       echo anchor ('busqueda/busqueda_paginada', 'Buscar'); 
+        echo form_submit ('submit', 'Buscar'); 
     	echo form_close();  
+
 ?>
+</div >
+<div class="cabecera_logo" align="center">
 
+<?php
+
+# El logo será una imagen que redirecciona la página principal
+
+ echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); 
+
+
+
+# A continuación construiremos la sección de las categorías con los contenedores que hemos definido en nuestra hoja de estilos, para dotarla de mayor vistosidad
+?>
 </div>
-
-<div align=center>
-<?php echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); ?>
-</div>
-
 
 
 <div id="div_container">
 
 
-<table width="1em" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width="40%" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -214,22 +230,17 @@
 </div>
 
 
+<div id="div_superior" align= "center">
 
-<div id="superior" align="center">
-<?php echo $tabla ?>
-</div>
-<div id="inferior" align="center">
-<?php echo $this->pagination->create_links(); 
+<object width="425" height="350">
+<param name="movie" value="<?php echo $enlace ?> "> </param> <embed src="<?php echo $enlace ?> " type="application/x-shockwave-flash" width="425" height="350"> </embed> </object>
 
-
-
-
-# Pintaremos la sección lateral de las categorías
-?>
 </div>
 
 
-     
 
-</body>
 <?php $this->load->view('includes/pie'); ?>
+
+
+
+

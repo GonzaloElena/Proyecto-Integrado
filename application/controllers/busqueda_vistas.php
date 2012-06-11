@@ -19,7 +19,7 @@
 	 {
 	  	
 		$data['login_usuario']= $this->cargar_datos_usuario();
-	 	$data['tabla'] = $this->prueba();
+	 	$data['tabla'] = $this->busqueda_clases();
 		$this->load->view('busqueda', $data);	
 	}
 
@@ -28,7 +28,7 @@
 	
 # Búsqueda paginada con parámetros de texto
 
-	function prueba()
+	function busqueda_clases()
 	{
 
 
@@ -64,16 +64,19 @@
 # El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
 
 	     foreach($query->result() as $dato):
-	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
-             $array[1] = $dato->usuario;  
+             
+	     $array[0] = anchor("reproducir_video/index/".$dato->video, $dato->nombre);
+             $array[1] = $dato->autor;  
 	     $array[2] = $dato->categoria;  
-	     $array[3] = $dato->fecha_subida;  
-	     $array[4] = $dato->descripcion;    
+	     $array[3] = $dato->fecha;  
+	     $array[4] = $dato->descripcion;  
 	     $this->table->add_row($array);
+
              endforeach;
 
 # Una vez tratado lo devolvemos
 
+	  
 	     return  $this->table->generate();  
 	}
 

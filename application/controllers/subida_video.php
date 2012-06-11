@@ -35,6 +35,7 @@ public function subir_video() {
 	  $this->form_validation->set_rules('nombre', 'Nombre del video', 'trim|required|min_length[4]|max_length[50]|callback_notDefaultNombre');
 	  $this->form_validation->set_rules('descripcion', 'Descripción', 'trim|required|callback_notDefaultDescripcion');
 	  $this->form_validation->set_rules('categoria', 'Categoría', 'trim|required|callback_notDefaultCategoria');
+	  $this->form_validation->set_rules('enlace', 'Enlace', 'trim|required|callback_notDefaultEnlace');
 	  
 # Comprobaremos si se cumplen o no		
 		
@@ -151,6 +152,18 @@ function notDefaultCategoria($str){
      return TRUE;
   }
 }   
+
+
+# Función para comprobar que el enlace no es el que se pone por defecto
+
+function notDefaultEnlace($str){
+  if($str == 'Escriba aquí el enlace del video'){
+     return FALSE;
+  } else {
+     return TRUE;
+  }
+}   
+
 
 
 }

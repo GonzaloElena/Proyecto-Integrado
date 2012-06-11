@@ -101,12 +101,14 @@ $query = $this->db-> get("$palabra");
 public function busqueda_palabra($limit, $start, $palabra) {
 
 $this->db->limit($limit, $start);
-$query = $this->db->query("select nombre, (select nombre from usuarios where usuario=id_usuario) as usuario, date (fecha_subida) as fecha, descripcion
+$query = $this->db->query("select id_video as video, nombre, (select nombre from usuarios where usuario=id_usuario) as usuario, date (fecha_subida) as fecha, descripcion
 from videos where nombre like '%$palabra%' order by id_video desc;");
 
 return $query;
 
 }
+
+
 
 public function comprobar_palabra($palabra) {
 
@@ -120,6 +122,15 @@ return $num;
 
 }
 
+# Búsqueda del enlace a partir del nombre del video
+
+public function extraer_enlace($video) {
+
+$query = $this->db->query("select * from videos where id_video = '$video';");
+
+return $query;
+
+}
 
 }
 

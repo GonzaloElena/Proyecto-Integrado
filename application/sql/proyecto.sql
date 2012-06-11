@@ -28,37 +28,41 @@ drop table videos cascade;
 
 create table videos (
 id_video bigserial constraint pk_videos primary key,
-nombre char(50) not null,
+nombre char(50) not null constraint uq_nombre unique,
 usuario bigint not null constraint fk_videos_usuarios references usuarios(id_usuario),
 categoria char(15) not null constraint ck_categoria_valida check (categoria in('Barbarian','WitchDoctor','Wizard','DemonHunter','Monk')),
 descripcion text,
+enlace char(50),
 fecha_subida timestamp default current_timestamp
 );
 
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('DemonHunter Solo Butcher', 5, 'DemonHunter','DH soleando Butcher en Hell');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Barbarian Solo Azmodan', 1, 'Barbarian','Bárbaro solea Azmodan');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Monk Solo Butcher', 4, 'Monk','Monje solea Carnicero');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('DemonHunter trailer', 5, 'DemonHunter','Trailer de DH');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Wizard trailer', 3, 'Wizard','Trailer de Wizard');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Barbarian trailer', 2, 'Barbarian','Trailer de Barbaro');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Monk trailer', 4, 'Monk','Trailer de Monje');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Wizard Solo Butcher', 3, 'Wizard','Trailer de DH');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('DemonHunter Solo Belial', 5, 'DemonHunter','Demon Hunter vs Belial');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('DemonHunter Solo Azmodan', 5, 'DemonHunter','Demon Hunter vs Azmodan');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('DemonHunter Solo Rakanoth', 5, 'DemonHunter','Demon Hunter vs Rakanoth');
-insert into videos (nombre, usuario, categoria, descripcion) 
-values ('Witch Doctor 9 secs Butcher', 6, 'WitchDoctor','Insane DPS');
+
+
+
+insert into videos (nombre, usuario, categoria, descripcion, enlace) 
+values ('DemonHunter Solo Butcher', 5, 'DemonHunter','DH soleando Butcher en Hell', 'http://www.youtube.com/v/Xf3pEdqdois');
+insert into videos (nombre, usuario, categoria, descripcion, enlace) 
+values ('Barbarian Solo Azmodan', 1, 'Barbarian','Bárbaro solea Azmodan', 'http://www.youtube.com/v/raZErIwCSWk');
+insert into videos (nombre, usuario, categoria, descripcion, enlace) 
+values ('Monk Solo Butcher', 4, 'Monk','Monje solea Carnicero', 'http://www.youtube.com/v/rJX5mZ93Kr0');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('DemonHunter trailer', 5, 'DemonHunter','Trailer de DH', 'http://www.youtube.com/v/Gv7JgTtIe2I');
+insert into videos (nombre, usuario, categoria, descripcion, enlace) 
+values ('Wizard trailer', 3, 'Wizard','Trailer de Wizard', 'http://www.youtube.com/qp24_S_oMiU');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('Barbarian trailer', 2, 'Barbarian','Trailer de Barbaro', 'http://www.youtube.com/HzE-Xy2v2zE');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('Monk trailer', 4, 'Monk','Trailer de Monje', 'http://www.youtube.com/v/TjdSwAAE5-E');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('Wizard Solo Butcher', 3, 'Wizard','Trailer de DH', 'http://www.youtube.com/v/WByqPqwBrzs');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('DemonHunter Solo Belial', 5, 'DemonHunter','Demon Hunter vs Belial', 'http://www.youtube.com/v/856wHCr9TK0');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('DemonHunter Solo Azmodan', 5, 'DemonHunter','Demon Hunter vs Azmodan', 'http://www.youtube.com/3bGVo2kK9ug');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('DemonHunter Solo Rakanoth', 5, 'DemonHunter','Demon Hunter vs Rakanoth', 'http://www.youtube.com/v/qzpRAUgyxaU');
+insert into videos (nombre, usuario, categoria, descripcion, enlace)
+values ('Witch Doctor 9 secs Butcher', 6, 'WitchDoctor','Insane DPS', 'http://www.youtube.com/v/53OgBJsXa58');
 
 
 
@@ -91,7 +95,7 @@ insert into comentarios (video, usuario, puntuacion, comentario) values (7,1,5,'
 
 drop view ultimos_videos cascade;
 
-create view ultimos_videos as select nombre, usuario, categoria, descripcion,
+create view ultimos_videos as select nombre, usuario, categoria, descripcion, id_video as video, enlace,
 		
 	  case  when  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) = 0  then   ' « 1 Minuto '
 		when  trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) = 1  then     trunc(EXTRACT(EPOCH FROM current_timestamp - fecha_subida)/60) || ' Minuto '
@@ -107,17 +111,28 @@ create view ultimos_videos as select nombre, usuario, categoria, descripcion,
 
 drop view puntuacion_videos cascade;
 
-create view puntuacion_videos as select (select nombre from videos where id_video=video) as nombre, ROUND(AVG(puntuacion)) as media, count(video) 
+create view puntuacion_videos as select video, (select nombre from videos where id_video = video) as nombre, (select enlace from videos where id_video =video) as enlace, ROUND(AVG(puntuacion)) as media, count(video) 
 					from comentarios group by video order by AVG(puntuacion) desc limit 10;
+
 
 -- Vistas para ver los videos de las diferentes categorías
 
-create view videos_magos as select * from videos where categoria = 'Wizard';
+drop view videos_magos;
 
-create view videos_barbaros as select * from videos where categoria = 'Barbarian';
+create view videos_magos as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Wizard';
 
-create view videos_brujos as select * from videos where categoria = 'WitchDoctor';
+drop view videos_barbaros;
 
-create view videos_monjes as select * from videos where categoria = 'Monk';
+create view videos_barbaros as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Barbarian';
 
-create view videos_demonhunter as select * from videos where categoria = 'DemonHunter';
+drop view videos_brujos;
+
+create view videos_brujos as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'WitchDoctor';
+
+drop view videos_monjes;
+
+create view videos_monjes as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Monk';
+
+drop view videos_demonhunter;
+
+create view videos_demonhunter as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'DemonHunter';

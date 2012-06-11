@@ -22,6 +22,8 @@ $lang['is_natural_no_zero'] = 'El campo %s debe contener un numero mayor que cer
 $lang['notDefaultNombre'] =  'Escriba un nombre para el video';
 $lang['notDefaultDescripcion'] =  'Escriba una descripción para el video';
 $lang['notDefaultCategoria'] =  'Seleccione una categoría';
+$lang['notDefaultEnlace'] =  'Escriba un enlace para el video';
+
 
 /* End of file form_validation_lang.php */
 /* Location: ./system/language/english/form_validation_lang.php */

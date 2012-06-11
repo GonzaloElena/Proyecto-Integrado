@@ -49,9 +49,11 @@ $data = array(
 
 echo form_textarea($data);
 
+# Ponemos un enlace para el stream del video
 ?>
-
-
+</p>
+<p>
+<?php echo form_input('enlace', set_value('enlace', 'Escriba aquí el enlace del video'));?>
 </p>
 <p>
 <input type="file" id="video" name="video" >

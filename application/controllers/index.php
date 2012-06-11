@@ -58,13 +58,13 @@
 
 # Una vez configurada hacemos la select de la vista que creamos en nuestro archivo SQL.
 
-	     $query = $this->db->query("SELECT nombre, fecha FROM ultimos_videos");
+	     $query = $this->db->query("SELECT nombre, fecha, enlace, video FROM ultimos_videos");
 		
 	    
 # El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
 
 	     foreach($query->result() as $dato):
-	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+	     $array[0] = anchor("reproducir_video/index/".$dato->video, $dato->nombre);
              $array[1] = $dato->fecha;   
 	     $this->table->add_row($array);
              endforeach;
@@ -85,7 +85,7 @@
 
 	     $this->load->library('table');
 
-	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" font-size="20px"cellspacing="10" align="center">', );
+	     $tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" font-size="20px" cellspacing="10" align="center">', );
 
 	     $this->table->set_heading('<h2>Videos mejor valorados</h2>', '<h2>Valoracion</h2>');
 
@@ -94,13 +94,13 @@
 
 # Una vez configurada hacemos la select de la vista que creamos en nuestro archivo SQL.
 
-	     $query = $this->db->query("SELECT nombre, media FROM puntuacion_videos");
+	     $query = $this->db->query("SELECT video, nombre, media, enlace FROM puntuacion_videos");
 		
 	    
 # El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
 
 	     foreach($query->result() as $dato):
-	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+	     $array[0] = anchor("reproducir_video/index/".$dato->video, $dato->nombre);
              $array[1] = $dato->media;   
 	     $this->table->add_row($array);
              endforeach;

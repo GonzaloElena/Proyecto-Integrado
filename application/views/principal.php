@@ -1,6 +1,8 @@
 <?php $this->load->view('includes/cabecera_principal');
 ?>
 
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+
 
 <div id="cabecera_top">
 
@@ -37,6 +39,9 @@
 
  echo anchor('/principal/index',img('/imagenes/diablo_logo3.png')); 
 
+
+
+# A continuación construiremos la sección de las categorías con los contenedores que hemos definido en nuestra hoja de estilos, para dotarla de mayor vistosidad
 ?>
 </div>
 
@@ -44,7 +49,7 @@
 <div id="div_container">
 
 
-<table width="1em" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width="40%" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -93,7 +98,10 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">Mágo        </div>
+						<?php echo form_open('busqueda_vistas/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos_magos">
+					 	<button type="submit" value="Submit">Mago</button>
+					    	<?php echo form_close();  ?></div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>
@@ -124,7 +132,10 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">Monje        </div>
+						<div id="inner"><?php echo form_open('busqueda_vistas/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos_monjes">
+					 	<button type="submit" value="Submit">Monje</button>
+					    	<?php echo form_close();  ?>      </div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>
@@ -155,7 +166,10 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">DemonHunter</div>
+						<div id="inner"><?php echo form_open('busqueda_vistas/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos_demonhunter">
+					 	<button type="submit" value="Submit">Demon Hunter</button>
+					    	<?php echo form_close();  ?></div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>
@@ -186,7 +200,10 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner">WitchDoctor</div>
+						<div id="inner"><?php echo form_open('busqueda_vistas/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos_brujos">
+					 	<button type="submit" value="Submit">Witch Doctor</button>
+					    	<?php echo form_close();  ?></div>
 						<div id="gradientbottom"></div>
 					</div>
 				</div>
@@ -246,11 +263,11 @@ echo $tabla2;
 ?>
 
 </div>
+<div>
 
 
 
-
-
+</div>
 
 
 

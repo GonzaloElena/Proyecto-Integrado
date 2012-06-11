@@ -86,7 +86,7 @@
 # El resultado lo vamos a tratar, vamos a colocar un enlace en el nombre del video para poder acceder a él
 
 	     foreach($query->result() as $dato):
-	     $array[0] = anchor('usuario/form/'.$dato->nombre, $dato->nombre);
+	     $array[0] = anchor("reproducir_video/index/".$dato->video, $dato->nombre);
              $array[1] = $dato->usuario;   
 	     $array[2] = $dato->fecha;  
 	     $array[3] = $dato->descripcion;    
