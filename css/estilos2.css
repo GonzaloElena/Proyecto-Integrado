@@ -87,6 +87,23 @@ left:0px;
 z-index:10;
 }
 
+#div_info_video {
+
+	width: 400px;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
+	border: 2px solid white;
+	margin: 250px auto 0;
+	padding: 200px;
+	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
+	-moz-border-radius: 3px;
+	box-shadow: 0 1px 0 black;
+	-moz-box-shadow: 0 1px 0 black;
+	-webkit-box-shadow: 0 1px 0 black;
+
+
+}
 
 #cabecera_logo {
 	
@@ -115,10 +132,36 @@ z-index:10;
 	opacity:0.7;
   	filter:alpha(opacity=70); 
 	-moz-border-radius: 3px;
+	
 }
 
 
 
+#div_info {
+	width: 45%;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
+	border: 0 solid white;
+	margin: 1em auto 0;
+	padding: 1em;
+	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
+	-moz-border-radius: 3px;
+	
+}
+
+#div_vota {
+	width: 45%;
+	background: #696969 url(../imagenes/login_bg.jpg) repeat-x 0 0;
+	border: 0 solid white;
+	margin: 1em auto 0;
+	padding: 1em;
+	font-family: Exocet;
+	opacity:0.7;
+  	filter:alpha(opacity=70); 
+	-moz-border-radius: 3px;
+	
+}
 /* Texto de Headers */
 
 h1,h2,h3,h4,h5 {

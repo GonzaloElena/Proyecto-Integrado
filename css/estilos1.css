@@ -122,6 +122,17 @@ h1,h2,h3,h4,h5 {
 }
 
 
+#capa_cerrar_sesion {
+	float: right;
+	position: relative;
+	font-size: 15px;
+	border-style: solid;
+	border-width: 4px;
+	border-color: midnightblue;
+	background: midnightblue;
+	font-family: "arial";
+}
+
 
 /* Diferentes Inputs, bien texto, submits, anchor,..... */
 

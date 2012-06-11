@@ -115,6 +115,8 @@ create view puntuacion_videos as select video, (select nombre from videos where 
 					from comentarios group by video order by AVG(puntuacion) desc limit 10;
 
 
+
+
 -- Vistas para ver los videos de las diferentes categorías
 
 drop view videos_magos;

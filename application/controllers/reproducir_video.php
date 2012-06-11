@@ -18,7 +18,7 @@
 	
 	  
 	  
-         $query = $this->db->query("SELECT * FROM videos where id_video = $video");
+         $query = $this->db->query("SELECT id_video, nombre, enlace, usuario, categoria, descripcion, date(fecha_subida) as fecha_subida FROM videos where id_video = $video");
 
 	foreach ($query->result() as $row)
 	{
@@ -27,8 +27,8 @@
 	  $data['enlace'] = $row->enlace;
 	  $data['usuario'] = $row->usuario;
 	  $data['categoria'] = $row->categoria;
-	  $data['descripcion'] = $row->enlace;
-	  $data['fecha_subida'] = $row->enlace;
+	  $data['descripcion'] = $row->descripcion;
+	  $data['fecha_subida'] = $row->fecha_subida;
 
 	    
 	}
