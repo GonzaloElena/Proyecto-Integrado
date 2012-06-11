@@ -200,9 +200,9 @@
 			<div id="moreornaments">
 				<div id="radialgradient">
 					<div id="gloss">
-						<div id="inner"><?php echo form_open('busqueda_vistas/'); ?>
-						<input type="hidden" name="categoria" id="categoria" value="videos_brujos">
-					 	<button type="submit" value="Submit">Witch Doctor</button>
+						<div id="inner"><?php echo form_open('busqueda_total/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos">
+					 	<button type="submit" value="Submit">Todas</button>
 					    	<?php echo form_close();  ?></div>
 						<div id="gradientbottom"></div>
 					</div>
@@ -224,10 +224,11 @@
 	</div>
 </div>
 </td>
-<td><?php echo img('imagenes/Retrato_Barbaro.png') ?></td>
 </tr>
 </table>
 </div>
+
+
 
 
 <!-- Aquí colocaremos el reproductor de videos   -->

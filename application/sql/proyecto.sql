@@ -119,22 +119,26 @@ create view puntuacion_videos as select video, (select nombre from videos where 
 
 -- Vistas para ver los videos de las diferentes categorías
 
-drop view videos_magos;
+drop view todos cascade;
+
+create view todos as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos;
+
+drop view videos_magos cascade;
 
 create view videos_magos as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Wizard';
 
-drop view videos_barbaros;
+drop view videos_barbaros cascade;
 
 create view videos_barbaros as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Barbarian';
 
-drop view videos_brujos;
+drop view videos_brujos cascade;
 
 create view videos_brujos as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'WitchDoctor';
 
-drop view videos_monjes;
+drop view videos_monjes cascade; 
 
 create view videos_monjes as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'Monk';
 
-drop view videos_demonhunter;
+drop view videos_demonhunter cascade;
 
 create view videos_demonhunter as select id_video as video, nombre,  (select nombre from usuarios  where usuario = id_usuario) as autor, categoria, descripcion, date(fecha_subida) as fecha from videos where categoria =  'DemonHunter';

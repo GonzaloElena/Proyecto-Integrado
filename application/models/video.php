@@ -95,6 +95,23 @@ $query = $this->db-> get("$palabra");
 
 	   }
 
+# Búsqueda paginada
+
+public function busqueda_total($limit, $start) {
+
+$this->db->limit($limit, $start);
+$query = $this->db-> get('videos');
+
+ if ($query->num_rows() > 0) {
+	            foreach ($query->result() as $row) {
+	                $data[] = $row;
+	            }
+	            return $data;
+	        }
+	        return false;
+
+	   }
+
 # Búsqueda paginada con parámetros de texto
 
 

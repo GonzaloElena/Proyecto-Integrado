@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	 
-	class busqueda_vistas extends CI_Controller {
+	class busqueda_total extends CI_Controller {
 	 
 	 function __construct()
 	 {
@@ -42,8 +42,8 @@
 		
 # Definimos la base url,  filas totales, resultados por página y también los de la tabla
 		
-		$config['base_url'] = 'http://localhost/web/Proyecto-Integrado/index.php/busqueda_vistas/index';
-		$config['total_rows'] = $this->db->get("$categoria")->num_rows();
+		$config['base_url'] = 'http://localhost/web/Proyecto-Integrado/index.php/busqueda_total/index';
+		$config['total_rows'] = $this->db->get('videos')->num_rows();
 		$config['per_page'] = 10;
 		$config['full_tag_open'] = '<div id="paginacion">';
 		$config['full_tag_close'] = '</div>';
@@ -57,17 +57,23 @@
 		$this->pagination->initialize($config);
 	
 		
-# Preparamos la consulta y la almacenamos 
+
 		
+# Preparamos la consulta y la almacenamos 
+
+		$this->load->model('video');
+		$palabra = ' ';
+		$query = $this->video->busqueda_palabra($config['per_page'], $this->uri->segment(3), $palabra );
+
 
 		
 		
-		$query = $this->db->get("$categoria");
+		$query = $this->db->get('videos');
 		foreach($query->result() as $dato):     
-		$array[0] = anchor("reproducir_video/index/".$dato->video, $dato->nombre);
-	        $array[1] = $dato->autor;  
+		$array[0] = anchor("reproducir_video/index/".$dato->id_video, $dato->nombre);
+	        $array[1] = $dato->usuario;  
 		$array[2] = $dato->categoria;  
-		$array[3] = $dato->fecha;  
+		$array[3] = $dato->fecha_subida;  
 	        $array[4] = $dato->descripcion;  
 		$this->table->add_row($array);
 		endforeach;

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	 
-	class busqueda extends CI_Controller {
+	class busqueda_total extends CI_Controller {
 	 
 	 function __construct()
 	 {
@@ -24,7 +24,7 @@
 #Vamos a comprobar que no haya ningún error en la búsqueda ni se nos haya pasado una cadena vacía
 
 
-		$palabra = $this->input->post('palabra');
+		$palabra = $this->input->post('palabra') or  $palabra == 0;
 		
  
 		if ((trim($palabra) == "")  or ($this->video->comprobar_palabra($palabra) == 0))
@@ -66,7 +66,7 @@
 		
 		$config['base_url'] = 'http://localhost/web/Proyecto-Integrado/index.php/busqueda/index';
 		$config['per_page'] = 10;
-		$config['total_rows'] = $var = $this->video->busqueda_palabra(10, $this->uri->segment(3), $palabra )->num_rows();
+		$config['total_rows'] =  $this->video->busqueda_palabra(10, $this->uri->segment(3), $palabra )->num_rows();
 		$config['full_tag_open'] = '<div id="paginacion">';
 		$config['full_tag_close'] = '</div>';
 		$tmpl = array ( 'table_open'  => '<table class="transparente" style="width: 30%;" cellpadding="5" cellspacing="10" font-size="20px" align="center">', );

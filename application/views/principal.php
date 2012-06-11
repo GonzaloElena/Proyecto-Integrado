@@ -49,7 +49,7 @@
 <div id="div_container">
 
 
-<table width="40%" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
+<table width="45%" border="0" cellpadding="0" bgcolor="transparent" text-align="center" class="transparente"> 
 <tr>
 <th>
 <h2>Categorías</h2>
@@ -225,6 +225,39 @@
 </div>
 </td>
 <td><?php echo img('imagenes/Retrato_WitchDoctor.png') ?></td>
+</tr>
+<tr>
+<td>
+<div id="container">
+	<div id="border1">
+		<div id="ornaments">
+			<div id="moreornaments">
+				<div id="radialgradient">
+					<div id="gloss">
+						<div id="inner"><?php echo form_open('busqueda_total/'); ?>
+						<input type="hidden" name="categoria" id="categoria" value="videos">
+					 	<button type="submit" value="Submit">Todas</button>
+					    	<?php echo form_close();  ?></div>
+						<div id="gradientbottom"></div>
+					</div>
+				</div>
+				<div class="triangle top left bg"></div>
+				<div class="triangle middle left bg"></div>
+				<div class="triangle middle left"></div>
+				<div class="triangle top left"></div>
+				<div class="triangle bottom left bg"></div>
+				<div class="triangle bottom left"></div>
+				<div class="triangle top right bg"></div>
+				<div class="triangle top right"></div>
+				<div class="triangle middle right bg"></div>
+				<div class="triangle middle right"></div>
+				<div class="triangle bottom right bg"></div>
+				<div class="triangle bottom right"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</td>
 </tr>
 </table>
 </div>
